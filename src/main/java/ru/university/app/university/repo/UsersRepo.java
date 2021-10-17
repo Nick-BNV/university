@@ -7,6 +7,6 @@ import ru.university.app.university.models.UserUniversity;
 
 import java.util.Optional;
 
-public interface UsersRepo extends JpaRepository<UserUniversity, Long> {
+public interface UsersRepo extends JpaRepository<UserUniversity, Integer> {
     Optional<UserUniversity> findByEmail(String email);
 }
