@@ -12,19 +12,19 @@ public class GroupController {
     @Autowired
     private StudyGroupRepo studyGroupRepo;
 
-    @GetMapping(path="/allgroup")
+    @GetMapping(path="/all")
     public @ResponseBody
     Iterable<StudyGgroup> getAllGroup() {
         return studyGroupRepo.findAll();
     }
 
-    @GetMapping(path = "/addgroup")
-    public String addgroup (){
-        return "group/addgroup";
+    @GetMapping(path = "/add")
+    public String addGroup (){
+        return "group/add";
     }
 
-    @PostMapping(path="/addgroup")
-    public @ResponseBody String addnewgroup (
+    @PostMapping(path="/add")
+    public @ResponseBody String addNewGroup (
             @RequestParam String group_name) {
 
         StudyGgroup s = new StudyGgroup(group_name);

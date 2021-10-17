@@ -2,10 +2,7 @@ package ru.university.app.university.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import ru.university.app.university.models.StudyGgroup;
 import ru.university.app.university.models.UserUniversity;
 import ru.university.app.university.repo.StudyGroupRepo;
@@ -14,6 +11,7 @@ import ru.university.app.university.repo.UsersRepo;
 import java.security.Principal;
 
 @Controller
+@RequestMapping("/admin")
 public class MainController {
     @Autowired
     private UsersRepo usersRepo;
@@ -23,18 +21,18 @@ public class MainController {
     }
 
 
-    @GetMapping(path="/admin/all")
+    @GetMapping(path="/all")
     public @ResponseBody Iterable<UserUniversity> getAllUsers() {
         return usersRepo.findAll();
     }
 
 
-    @GetMapping(path = "/admin/add")
+    @GetMapping(path = "/add")
     public String addForm (){
         return "/admin/add";
     }
 
-    @PostMapping(path="/admin/add")
+    @PostMapping(path="/add")
     public @ResponseBody String addNewUser (
             @RequestParam String email,
             @RequestParam String name,
