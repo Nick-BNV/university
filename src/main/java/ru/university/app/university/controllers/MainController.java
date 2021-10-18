@@ -16,13 +16,15 @@ public class MainController {
     @Autowired
     private UsersRepo usersRepo;
     @GetMapping("/success")
-    public @ResponseBody String success (Principal principal){
+    @ResponseBody
+    public String success (Principal principal){
         return "privet "+principal.getName() +"!";
     }
 
 
     @GetMapping(path="/all")
-    public @ResponseBody Iterable<UserUniversity> getAllUsers() {
+    @ResponseBody
+    public Iterable<UserUniversity> getAllUsers() {
         return usersRepo.findAll();
     }
 

@@ -13,8 +13,8 @@ public class GroupController {
     private StudyGroupRepo studyGroupRepo;
 
     @GetMapping(path="/all")
-    public @ResponseBody
-    Iterable<StudyGgroup> getAllGroup() {
+    @ResponseBody
+    public Iterable<StudyGgroup> getAllGroup() {
         return studyGroupRepo.findAll();
     }
 
