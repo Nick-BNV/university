@@ -24,7 +24,9 @@ public class GroupController {
     }
 
     @PostMapping(path="/add")
-    public @ResponseBody String addNewGroup (
+    @ResponseBody
+    // Все равно не рабоает
+    public  String addNewGroup (
             @RequestParam String group_name) {
 
         StudyGgroup s = new StudyGgroup(group_name);

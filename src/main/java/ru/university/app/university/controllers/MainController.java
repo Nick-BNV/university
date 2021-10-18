@@ -33,7 +33,9 @@ public class MainController {
     }
 
     @PostMapping(path="/add")
-    public @ResponseBody String addNewUser (
+    @ResponseBody
+    // не рабоает
+    public  String addNewUser (
             @RequestParam String email,
             @RequestParam String name,
             @RequestParam String middle_name,
