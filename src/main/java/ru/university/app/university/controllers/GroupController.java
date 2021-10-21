@@ -1,6 +1,7 @@
 package ru.university.app.university.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.university.app.university.models.StudyGgroup;
@@ -23,7 +24,10 @@ public class GroupController {
         return "group/add";
     }
 
+
+
     @PostMapping(path="/add")
+
     @ResponseBody
     // Все равно не рабоает
     public  String addNewGroup (

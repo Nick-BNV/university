@@ -1,6 +1,7 @@
 package ru.university.app.university.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.university.app.university.models.StudyGgroup;
@@ -15,6 +16,7 @@ import java.security.Principal;
 public class MainController {
     @Autowired
     private UsersRepo usersRepo;
+
     @GetMapping("/success")
     @ResponseBody
     public String success (Principal principal){
@@ -23,6 +25,7 @@ public class MainController {
 
 
     @GetMapping(path="/all")
+    @PreAuthorize("hasAuthority('developers:read')")
     @ResponseBody
     public Iterable<UserUniversity> getAllUsers() {
         return usersRepo.findAll();
@@ -34,7 +37,10 @@ public class MainController {
         return "/admin/add";
     }
 
+
+
     @PostMapping(path="/add")
+    @PreAuthorize("hasAuthority('developers:write')")
     @ResponseBody
     // не рабоает
     public  String addNewUser (
