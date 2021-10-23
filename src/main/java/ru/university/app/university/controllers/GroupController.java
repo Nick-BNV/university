@@ -15,13 +15,12 @@ public class GroupController {
     @GetMapping(path="/all")
     public @ResponseBody
     Iterable<StudyGgroup> getAllGroup() {
-
         return studyGroupRepo.findAll();
     }
 
     @GetMapping(path = "/add")
     public String addGroup (){
-        return "/group/add";
+        return "group/add";
     }
 
     @PostMapping(path="/add")
