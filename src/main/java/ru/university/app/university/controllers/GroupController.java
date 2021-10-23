@@ -13,8 +13,8 @@ public class GroupController {
     private StudyGroupRepo studyGroupRepo;
 
     @GetMapping(path="/all")
-    public @ResponseBody
-    Iterable<StudyGgroup> getAllGroup() {
+    @ResponseBody
+    public Iterable<StudyGgroup> getAllGroup() {
         return studyGroupRepo.findAll();
     }
 
@@ -24,7 +24,9 @@ public class GroupController {
     }
 
     @PostMapping(path="/add")
-    public @ResponseBody String addNewGroup (
+    @ResponseBody
+    // Все равно не рабоает
+    public  String addNewGroup (
             @RequestParam String group_name) {
 
         StudyGgroup s = new StudyGgroup(group_name);

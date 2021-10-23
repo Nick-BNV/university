@@ -25,7 +25,6 @@ import ru.university.app.university.models.Role;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-
     private final UserDetailsService userDetailsService;
 
     @Autowired
@@ -34,9 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
-                .authorizeRequests()
+        http.authorizeRequests()
                 .antMatchers(HttpMethod.GET,"/admin/**").hasAuthority(Permission.DEVELOPERS_READ.getPermission())
                 .antMatchers(HttpMethod.POST,"/admin/**").hasAuthority(Permission.DEVELOPERS_WRITE.getPermission())
                 .antMatchers("/success").permitAll()
