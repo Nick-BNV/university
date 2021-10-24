@@ -1,9 +1,13 @@
 package ru.university.app.university.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name="users")
 public class UserUniversity {
@@ -37,7 +41,7 @@ public class UserUniversity {
     @Column(name = "role")
     private Role role;
 
-    public UserUniversity() {}
+
 
     public UserUniversity(String email,  String name, String middle_name, String surname) {
         this.email = email;

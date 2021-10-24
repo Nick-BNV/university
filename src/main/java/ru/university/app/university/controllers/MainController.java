@@ -4,18 +4,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import ru.university.app.university.models.StudyGgroup;
 import ru.university.app.university.models.UserUniversity;
-import ru.university.app.university.repo.StudyGroupRepo;
-import ru.university.app.university.repo.UsersRepo;
+import ru.university.app.university.service.UserUniversityService;
 
 import java.security.Principal;
 
 @Controller
 @RequestMapping("/admin")
 public class MainController {
+    //@Autowired
+    //private UsersRepo usersRepo;
+
+    private final UserUniversityService userUniversityService;
+
     @Autowired
-    private UsersRepo usersRepo;
+    public MainController(UserUniversityService userUniversityService){
+        this.userUniversityService = userUniversityService;
+    }
 
     @GetMapping("/success")
     @ResponseBody
@@ -28,11 +33,12 @@ public class MainController {
     @PreAuthorize("hasAuthority('developers:read')")
     @ResponseBody
     public Iterable<UserUniversity> getAllUsers() {
-        return usersRepo.findAll();
+        return userUniversityService.getAllUsers();
     }
 
 
     @GetMapping(path = "/add")
+    @PreAuthorize("hasAuthority('developers:read')")
     public String addForm (){
         return "/admin/add";
     }
@@ -42,7 +48,6 @@ public class MainController {
     @PostMapping(path="/add")
     @PreAuthorize("hasAuthority('developers:write')")
     @ResponseBody
-    // не рабоает
     public  String addNewUser (
             @RequestParam String email,
             @RequestParam String name,
@@ -50,7 +55,7 @@ public class MainController {
             @RequestParam String surname) {
 
         UserUniversity user = new UserUniversity(email, name, middle_name, surname);
-        usersRepo.save(user);
+        userUniversityService.saveUser(user);
         return "пользователь добавлен";
     }
 

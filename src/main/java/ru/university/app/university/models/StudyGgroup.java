@@ -1,13 +1,16 @@
 package ru.university.app.university.models;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 
 @Entity
 @Data
+@NoArgsConstructor
 public class StudyGgroup {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -15,11 +18,11 @@ public class StudyGgroup {
 
     private String groupName;
 
+    private Integer studentCount;
 
-    public StudyGgroup(){}
-
-    public StudyGgroup(String groupName) {
+    public StudyGgroup(String groupName, Integer studentCount) {
         this.groupName = groupName;
+        this.studentCount=studentCount;
 
     }
 }
