@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Data
 @NoArgsConstructor
-public class StudyGgroup {
+public class StudyGroup {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
@@ -20,7 +20,13 @@ public class StudyGgroup {
 
     private Integer studentCount;
 
-    public StudyGgroup(String groupName, Integer studentCount) {
+    @Enumerated(value = EnumType.STRING)
+    private Course course;
+
+    @Enumerated(value = EnumType.STRING)
+    private Specialty specialty;
+
+    public StudyGroup(String groupName, Integer studentCount, Course course, Specialty specialty) {
         this.groupName = groupName;
         this.studentCount=studentCount;
 

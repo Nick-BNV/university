@@ -4,15 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import ru.university.app.university.models.StudyGgroup;
-import ru.university.app.university.repo.StudyGroupRepo;
+import ru.university.app.university.models.Course;
+import ru.university.app.university.models.Specialty;
+import ru.university.app.university.models.StudyGroup;
 import ru.university.app.university.service.GroupService;
 
 @Controller
 @RequestMapping(path = "/group")
 public class GroupController {
-    //@Autowired
-    //private StudyGroupRepo studyGroupRepo;
+
 
     GroupService groupService;
     @Autowired
@@ -23,7 +23,7 @@ public class GroupController {
     @GetMapping(path="/all")
     @ResponseBody
     @PreAuthorize("hasAuthority('developers:read')")
-    public Iterable<StudyGgroup> getAllGroup() {
+    public Iterable<StudyGroup> getAllGroup() {
         return groupService.getAll();
     }
 
@@ -38,9 +38,11 @@ public class GroupController {
     @PreAuthorize("hasAuthority('developers:write')")
     public  String addNewGroup (
             @RequestParam String group_name,
-            @RequestParam Integer studentCount) {
+            @RequestParam Integer studentCount,
+            @RequestParam Course course,
+            @RequestParam Specialty specialty) {
 
-        StudyGgroup s = new StudyGgroup(group_name, studentCount);
+        StudyGroup s = new StudyGroup(group_name, studentCount, course, specialty);
         groupService.saveGroup(s);
         return "группа добавлена";
     }

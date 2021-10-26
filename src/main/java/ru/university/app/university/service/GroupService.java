@@ -1,13 +1,13 @@
 package ru.university.app.university.service;
 
-import ru.university.app.university.models.StudyGgroup;
+import ru.university.app.university.models.StudyGroup;
 
 import java.util.List;
 
 public interface GroupService {
 
-    public List<StudyGgroup> getAll();
+    public List<StudyGroup> getAll();
 
-    public void saveGroup(StudyGgroup studyGgroup);
+    public void saveGroup(StudyGroup studyGgroup);
 
 }
