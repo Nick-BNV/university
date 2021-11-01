@@ -3,6 +3,7 @@ package ru.university.app.university.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.university.app.university.models.UserUniversity;
 import ru.university.app.university.service.UserUniversityService;
@@ -59,5 +60,31 @@ public class MainController {
         return "пользователь добавлен";
     }
 
+
+    @GetMapping("/update/{id}")
+    public String editUser(@PathVariable(name = "id") int id, Model model) {
+        model.addAttribute("user", userUniversityService.getUser(id));
+
+        return "admin/update";
+    }
+/*
+    @PostMapping(value = "/update/{id}")
+    public String update(@ModelAttribute("user") @Valid UserUniversity userUniversity, BindingResult bindingResult,
+                         @PathVariable("id") int id, Model model) {
+        List<Role> allRoles = userService.getRoles();
+        model.addAttribute("allRoles", allRoles);
+        if (bindingResult.hasErrors()) {
+            return "admin/update";
+        }
+        userService.updateUser(id, user);
+        return "redirect:/admin";
+    }
+
+    @RequestMapping("/delete/{id}")
+    public String deleteCustomerForm(@PathVariable(name = "id") int id) {
+        userService.removeUser(id);
+        return "redirect:/admin";
+    }
+*/
 
 }
