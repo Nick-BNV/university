@@ -3,18 +3,16 @@ package ru.university.app.university.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.university.app.university.models.UserUniversity;
 import ru.university.app.university.service.UserUniversityService;
 
 import java.security.Principal;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin")
 public class MainController {
-    //@Autowired
-    //private UsersRepo usersRepo;
 
     private final UserUniversityService userUniversityService;
 
@@ -24,6 +22,7 @@ public class MainController {
     }
 
     @GetMapping("/success")
+    @PreAuthorize("hasAuthority('developers:read')")
     @ResponseBody
     public String success (Principal principal){
         return "privet "+principal.getName() +"!";
@@ -45,7 +44,6 @@ public class MainController {
     }
 
 
-
     @PostMapping(path="/add")
     @PreAuthorize("hasAuthority('developers:write')")
     @ResponseBody
@@ -61,11 +59,12 @@ public class MainController {
     }
 
 
-    @GetMapping("/update/{id}")
-    public String editUser(@PathVariable(name = "id") int id, Model model) {
-        model.addAttribute("user", userUniversityService.getUser(id));
+    @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('developers:read')")
+    @ResponseBody
+    public String showUser(@PathVariable(value = "id") int id) {
 
-        return "admin/update";
+        return null;
     }
 /*
     @PostMapping(value = "/update/{id}")

@@ -42,14 +42,12 @@ public class UserUniversityServiceImpl implements  UserUniversityService {
     @Override
     public UserUniversity getUser(int id) {
         UserUniversity userUniversity = null;
-        Optional<UserUniversity> optionalUserUniversity = usersRepo.findById(id);
-        if(optionalUserUniversity.isPresent()){
-            userUniversity=optionalUserUniversity.get();
-        }else {
-            System.out.println("Пользователь не найден");
-        }
+        Optional<UserUniversity> userUniversity1 = usersRepo.findById(id);
+        if (userUniversity1.isPresent()){
+            userUniversity=userUniversity1.get();
+        } else  System.out.println("Optional does not contain a user");
 
-        return userUniversity;
+        return  userUniversity;
     }
 
     @Override
