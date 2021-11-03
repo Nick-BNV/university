@@ -3,6 +3,7 @@ package ru.university.app.university.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.university.app.university.models.UserUniversity;
 import ru.university.app.university.service.UserUniversityService;
@@ -59,12 +60,11 @@ public class MainController {
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/update/{id}")
     @PreAuthorize("hasAuthority('developers:read')")
-    @ResponseBody
-    public String showUser(@PathVariable(value = "id") int id) {
-
-        return null;
+    public String getUser(@PathVariable(value = "id") int id, Model model) {
+        model.addAttribute("user", userUniversityService.getUser(id));
+        return "/admin/update";
     }
 /*
     @PostMapping(value = "/update/{id}")

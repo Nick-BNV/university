@@ -51,4 +51,8 @@ public class UserUniversity {
     }
 
 
+    public Long getId() {
+        return id;
+    }
+
 }

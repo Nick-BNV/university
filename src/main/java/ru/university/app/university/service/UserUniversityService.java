@@ -16,7 +16,7 @@ public interface UserUniversityService {
 
     public void updateUser(int id, UserUniversity userUniversity);
 
-    public Optional<UserUniversity> getUser(int id);
+    public UserUniversity getUser(int id);
 
     public List<Role> getRoles();
 

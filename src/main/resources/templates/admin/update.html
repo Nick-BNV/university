@@ -11,60 +11,9 @@
 </div>
 
 <form th:method="PATCH" th:action="@{/admin/update/{id}(id=${user.getId()})}" th:object="${user}">
-    <table border="0" cellpadding="10">
 
-        <tr>
-            <td>Enter Name:</td>
-            <td><input type="text" th:field="*{username}"/></td>
-            <td>
-                <div style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Error</div>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Enter Surname:</td>
-            <td><input type="text" th:field="*{surname}"/></td>
-            <td>
-                <div style="color:red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Error</div>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Enter Email:</td>
-            <td><input type="text" th:field="*{email}"/></td>
-            <td>
-                <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error</div>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Enter Password:</td>
-            <td><input type="text" th:field="*{password}"/></td>
-            <td>
-                <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error</div>
-            </td>
-        </tr>
-
-        <label>Roles:</label>
-        <input type="checkbox" name="roles"
-               th:each="role : ${allRoles}"
-               th:text="${role.name}"
-               th:value="${role.id}"
-               th:field="*{roles}"
-        />
-
-        <tr>
-            <td colspan="2">
-                <button type="submit"> Update </button>
-            </td>
-        </tr>
-    </table>
 </form>
 
-<br/><br/>
-<form th:method="POST" th:action="@{/logout}">
-    <input type="submit" value="Logout!"/>
-</form>
-<br/><br/>
+
 </body>
 </html>
