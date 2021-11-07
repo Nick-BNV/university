@@ -1,1 +1,70 @@
-<mxfile host="app.diagrams.net" modified="2021-10-25T19:26:27.475Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 YaBrowser/21.9.1.684 Yowser/2.5 Safari/537.36" etag="hBwixU2IwADdLprCBXgJ" version="15.5.9" type="github"><diagram id="TuTr-VG9Fme6CRncaAcH" name="Page-1">7Vttj9o4EP41kdoPu7LzRvhIAlzvtJWq20qV7ptLvGDVxFzwvtBff07shEkctkDJ0p6CUOSMx47tecZ+mAmOl6xf/sjJZvVRpJQ7LkpfHG/quC72XdcpvijdackoDLRgmbPUKO0F9+w7NUJkpI8spduGohSCS7ZpChciy+hCNmQkz8VzU+1B8OZTN2RJLcH9gnBb+oWlcqWlkTvayz9QtlxVT8bhWNesSaVsZrJdkVQ8A5E3c7wkF0Lq0volobxYvGpddLv5gdp6YDnN5DENxt7n5c2Hp+jfvxYP9M9k+vTPPL4x1nki/NFM2JkiZzx3ptiJUFGOg/I6L6+z8uqXV13rVmWl7wL9uJQkZupyV63n9pmtOcnUXfwgMnlvarC6J5wtM1VeqAnRXAmeaC6ZMsXEVEixUdLFivH0juzEYzHtrSSLb9VdvBI5+666Jdz0qapzaVDlhg2N+6KlEiMlzelW6Xyq1hK3RB/JS0PxjmylESwE52SzZV/raaxJvmRZLKQUa6NkFllNh74ctB6uMaGciYo1lflOqZgGvkHRrnn7vMckDo1sBfEY+MYXjB8s6573UFEFg5YTkON1IEdZXGMjMmhRS+56uFyConKqoXGr2jVBpepGAEKo0RAiDqogAFINzBAoaxhOq+EozXm71wnoFTbyQceoPQcEwI/B+F0gD4zE1X7kAU+ZVd4Bhgie0HYXBRhZwjgX32giuFB+Mc2E9h/GeUtUuRCnD/KgA203ZMGy5V2pM/X3kr8NbgqRUG0feLlfrVia0qwAv5BEEo30YrQbwTJZ4iqI1VctVYJuAydQA0/UPd7fq2+hnstEZGouhJWgp8qNnmnhSsd5yOEdzHYb4yfF0h7jJ+O+3MS33aRtY85K22kbV4cMPsvAa2UqTvcW/VwYfHqDLat7ttW9Dgtz8pXyT2LLJBNF/7nWbVn+WsbF7pG7YNSTcYMO48bF2U/lSqTv5G5D3zvepOAsqjg498XtHx1n/2oXuDgAwm765INTB5fXEByLc3AEROCUQhZABrJ0Hlk6ly0pzZ6AMuoESm344jpq8mlIXkquYJMXTS00JymR1qIqGMAtsGCIGjx9/7wZgK1bsfjmsyF9mVgdR231uUWcJoAyRYCLWU3jJttSjeJuFjerZlCP3WvOD1K0Hw3Y7tK1uKa9cOggy7QMte/GPdi05ssTAA89gqRJH+dNBU2mIQ0dzp0Tz53wIqQSh31tJ9HAKnuzLh5fmVWOB1Z5Te/G42uzyir22WILE6+5t9cBiNbxo88IeOB4gAjMB655Ua4ZnhuZ8/o6HDD+X5FNSMbim0YozUVWc68rBFhzv4pzDXvmqXsmRt1ecCIlGvUG+o5MxkCJLmVejK7MiXBHumEgRW+KgKuzoo5Q+g9YURkuKMrjZsYpbpx7rpXjuchZpgMLvw7L8tFvzLL8c1lWbxE93BH8P4Yq1ezkjPDwkCf8if3Nf3V/OxZQAeoLTx25hIHAXMq8147p4I4EwMBf3hIAV6cvHTFbtXpjuMXDl2dgcsQHP2072ceRROfXISO/dcinxUW88FgyEvVGRjpixu2c28iKjMSvgcVQDvTOCqVoHCbv+84KtvJYGESD6jAVsjppvZPVyhjeqk/3G10BWJ5Dw4H5v1diZ8Wawfe//PfdPzBmVaAWLv6h/ODJj9GN650BvsAZg+6C07seeOjPnFPRq+fU0bnF3n7YVC9VDUS0D/vi4MpM1O3IDgxM9E0R0B8VVbf7PxSUdeBvGd7sPw==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-11-07T13:53:16.615Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 YaBrowser/21.9.2.169 Yowser/2.5 Safari/537.36" etag="0Q943963mm2SdT-O2fXo" version="15.5.9" type="github">
+  <diagram id="TuTr-VG9Fme6CRncaAcH" name="Page-1">
+    <mxGraphModel dx="1422" dy="765" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="93Tg-Hv8qJcfeICDvZFB-2" value="Преподаватель" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="280" y="320" width="160" height="154" as="geometry" />
+        </mxCell>
+        <mxCell id="93Tg-Hv8qJcfeICDvZFB-3" value="фио&#xa;эл. почта&#xa;дата рождения&#xa;кафедра&#xa;работает/уволен&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="93Tg-Hv8qJcfeICDvZFB-2" vertex="1">
+          <mxGeometry y="26" width="160" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="93Tg-Hv8qJcfeICDvZFB-4" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="93Tg-Hv8qJcfeICDvZFB-2" vertex="1">
+          <mxGeometry y="120" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="93Tg-Hv8qJcfeICDvZFB-5" value="+ method(type): type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="93Tg-Hv8qJcfeICDvZFB-2" vertex="1">
+          <mxGeometry y="128" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="93Tg-Hv8qJcfeICDvZFB-6" value="Дисциплина" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="80" y="40" width="160" height="224" as="geometry" />
+        </mxCell>
+        <mxCell id="93Tg-Hv8qJcfeICDvZFB-7" value="название&#xa;курс&#xa;специальность&#xa;лекции&#xa;практики&#xa;лабы&#xa;консультации&#xa;контрольная&#xa;курсовая&#xa;экзамен/зачет" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="93Tg-Hv8qJcfeICDvZFB-6" vertex="1">
+          <mxGeometry y="26" width="160" height="164" as="geometry" />
+        </mxCell>
+        <mxCell id="93Tg-Hv8qJcfeICDvZFB-8" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="93Tg-Hv8qJcfeICDvZFB-6" vertex="1">
+          <mxGeometry y="190" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="93Tg-Hv8qJcfeICDvZFB-9" value="+ method(type): type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="93Tg-Hv8qJcfeICDvZFB-6" vertex="1">
+          <mxGeometry y="198" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="93Tg-Hv8qJcfeICDvZFB-10" value="Учебная группа" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="280" y="40" width="160" height="134" as="geometry" />
+        </mxCell>
+        <mxCell id="93Tg-Hv8qJcfeICDvZFB-11" value="название&#xa;курс&#xa;специальность&#xa;кол-во студентов" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="93Tg-Hv8qJcfeICDvZFB-10" vertex="1">
+          <mxGeometry y="26" width="160" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="93Tg-Hv8qJcfeICDvZFB-12" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="93Tg-Hv8qJcfeICDvZFB-10" vertex="1">
+          <mxGeometry y="100" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="93Tg-Hv8qJcfeICDvZFB-13" value="+ method(type): type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="93Tg-Hv8qJcfeICDvZFB-10" vertex="1">
+          <mxGeometry y="108" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="93Tg-Hv8qJcfeICDvZFB-18" value="Индивидуальный план" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="80" y="530" width="160" height="184" as="geometry" />
+        </mxCell>
+        <mxCell id="93Tg-Hv8qJcfeICDvZFB-19" value="раздел плана (енум)&#xa;лекции&#xa;практические работы&#xa;....&#xa;редактирование (т/ф)&#xa;согласование (т/ф)&#xa;выполнение (т/ф)&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="93Tg-Hv8qJcfeICDvZFB-18" vertex="1">
+          <mxGeometry y="26" width="160" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="93Tg-Hv8qJcfeICDvZFB-20" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="93Tg-Hv8qJcfeICDvZFB-18" vertex="1">
+          <mxGeometry y="150" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="93Tg-Hv8qJcfeICDvZFB-21" value="+ method(type): type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="93Tg-Hv8qJcfeICDvZFB-18" vertex="1">
+          <mxGeometry y="158" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="eYxc66_hQJeUa7mcXsQ0-2" value="Дисциплины+ППС" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="160" height="154" as="geometry" />
+        </mxCell>
+        <mxCell id="eYxc66_hQJeUa7mcXsQ0-3" value="id дисциплины&#xa;id преподавателя&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="eYxc66_hQJeUa7mcXsQ0-2">
+          <mxGeometry y="26" width="160" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="eYxc66_hQJeUa7mcXsQ0-4" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="eYxc66_hQJeUa7mcXsQ0-2">
+          <mxGeometry y="120" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="eYxc66_hQJeUa7mcXsQ0-5" value="+ method(type): type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="eYxc66_hQJeUa7mcXsQ0-2">
+          <mxGeometry y="128" width="160" height="26" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
