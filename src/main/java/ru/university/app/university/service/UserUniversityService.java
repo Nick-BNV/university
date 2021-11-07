@@ -4,20 +4,20 @@ package ru.university.app.university.service;
 import ru.university.app.university.models.Role;
 import ru.university.app.university.models.UserUniversity;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public interface UserUniversityService {
-    public List<UserUniversity> getAllUsers();
+    public Iterable<UserUniversity> getAllUsers();
 
     public void saveUser(UserUniversity userUniversity);
 
-    public void removeUser(int id);
+    public boolean existById (Long id);
 
-    public void updateUser(int id, UserUniversity userUniversity);
+   public ArrayList<UserUniversity> details(Long id);
 
-    public UserUniversity getUser(int id);
+   public UserUniversity getUserById (Long id);
 
-    public List<Role> getRoles();
+   public void deleteUser (Long id);
 
 }

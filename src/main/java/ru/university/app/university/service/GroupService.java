@@ -2,12 +2,19 @@ package ru.university.app.university.service;
 
 import ru.university.app.university.models.StudyGroup;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public interface GroupService {
 
-    public List<StudyGroup> getAll();
+    public Iterable<StudyGroup> getAll();
 
-    public void saveGroup(StudyGroup studyGgroup);
+    public void saveGroup(StudyGroup studyGroup);
 
+    public ArrayList <StudyGroup> details (Long id);
+
+    public boolean existById (Long id);
+
+    public StudyGroup getGroup (Long id);
+
+    public void deleteGroup (Long id);
 }

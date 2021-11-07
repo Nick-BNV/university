@@ -28,7 +28,8 @@ public class StudyGroup {
 
     public StudyGroup(String groupName, Integer studentCount, Course course, Specialty specialty) {
         this.groupName = groupName;
-        this.studentCount=studentCount;
-
+        this.studentCount = studentCount;
+        this.course = course;
+        this.specialty = specialty;
     }
 }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список пользователей</title>
+</head>
+<body>
+<h1>Список пользователей</h1>
+<table>
+<tr th:each="el:${user}">
+        <td th:text="${el.id}"/>
+        <td th:text="${el.surname}"/>
+        <td th:text="${el.name}"/>
+        <td th:text="${el.middle_name}"/>
+        <td th:text="${el.role}"/>
+        <td><a th:href="'/admin/details/'+${el.id}">Подробнее</a></td>
+</tr>
+</table>
+</body>
+</html>

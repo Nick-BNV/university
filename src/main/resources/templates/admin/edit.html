@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование пользователя</title>
+</head>
+<body>
+<h1>Редактирование пользователя</h1>
+<form action="edit" method="post">
+    <table>
+        <tr th:each="el:${user}">
+            <td><input type="text" th:value="${el.surname}" name="surname" class="form-control"></td>
+            <td><input type="text" th:value="${el.name}" name="name" class="form-control"></td>
+            <td><input type="text" th:value="${el.middle_name}" name="middle_name" class="form-control"></td>
+            <td><input type="text" th:value="${el.email}" name="email" class="form-control"></td>
+            <td><input type="text" th:value="${el.status}" name="status" class="form-control"></td>
+            <td><input type="text" th:value="${el.role}" name="role" class="form-control"></td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-success">Обновить</button>
+</form>
+</body>
+</html>

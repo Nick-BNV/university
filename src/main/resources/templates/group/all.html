@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Учебные группы</title>
+</head>
+<body>
+<h1>Учебные группы</h1>
+<table>
+<tr th:each="el:${group}">
+        <td th:text="${el.id}"/>
+        <td th:text="${el.groupName}"/>
+        <td th:text="${el.studentCount}"/>
+        <td th:text="${el.course}"/>
+        <td th:text="${el.specialty}"/>
+        <td><a th:href="'/group/details/'+${el.id}">Подробнее</a></td>
+</tr>
+</table>
+</body>
+</html>
