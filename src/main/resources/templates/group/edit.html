@@ -11,11 +11,30 @@
         <tr th:each="el:${group}">
             <td><input type="text" th:value="${el.groupName}" name="group_name" class="form-control"></td>
             <td><input type="text" th:value="${el.studentCount}" name="studentCount" class="form-control"></td>
-            <td><input type="text" th:value="${el.course}" name="course" class="form-control"></td>
-            <td><input type="text" th:value="${el.specialty}" name="specialty" class="form-control"></td>
+            <td>
+                <select name="course">
+                    <option th:each="course : ${T(ru.university.app.university.models.Course).values()}"
+                            th:value="${el.course}"
+                            th:text="${el.course}">
+                    </option>
+                </select>
+
+                </td>
+            <td>
+                <select name="specialty">
+                    <option th:each="specialty : ${T(ru.university.app.university.models.Specialty).values()}"
+                            th:value="${el.specialty}"
+                            th:text="${el.specialty}">
+                    </option>
+                </select>
+
+                </td>
 
         </tr>
     </table>
+
+
+
     <button type="submit" class="btn btn-success">Обновить</button>
 </form>
 </body>

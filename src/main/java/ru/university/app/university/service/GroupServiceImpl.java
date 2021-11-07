@@ -12,13 +12,8 @@ import java.util.Optional;
 @Service
 @Transactional
 public class GroupServiceImpl implements GroupService {
-
-    StudyGroupRepo studyGroupRepo;
-
     @Autowired
-    public GroupServiceImpl(StudyGroupRepo studyGroupRepo) {
-        this.studyGroupRepo = studyGroupRepo;
-    }
+    StudyGroupRepo studyGroupRepo;
 
     @Override
     public Iterable<StudyGroup> getAll() {

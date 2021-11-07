@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Добавить группу</title>
@@ -9,10 +9,20 @@
 <form action="add" method="post">
     <input type="text" name="group_name" placeholder="название группы" class="form-control"><br>
     <input type="text" name="studentCount" placeholder="Количество студентов" class="form-control"><br>
-    <input type="text" name="course" placeholder="курс" class="form-control"><br>
-    <input type="text" name="specialty" placeholder="специальность" class="form-control"><br>
-
-
+    <select name="course">
+        <option th:each="course : ${T(ru.university.app.university.models.Course).values()}"
+                th:value="${course}"
+                th:text="${course}">
+        </option>
+    </select>
+    <br>
+    <select name="specialty">
+        <option th:each="specialty : ${T(ru.university.app.university.models.Specialty).values()}"
+                th:value="${specialty}"
+                th:text="${specialty}">
+        </option>
+    </select>
+    <br>
     <button type="submit" class="btn btn-success">добавить</button>
 </form>
 
