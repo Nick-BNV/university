@@ -43,11 +43,13 @@ public class UserUniversity {
 
 
 
-    public UserUniversity(String email,  String name, String middle_name, String surname) {
+    public UserUniversity(String email,  String name, String middle_name, String surname, Role role, Status status) {
         this.email = email;
         this.name = name;
         this.middle_name = middle_name;
         this.surname = surname;
+        this.role = role;
+        this.status = status;
     }
 
 

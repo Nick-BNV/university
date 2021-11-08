@@ -13,8 +13,21 @@
             <td><input type="text" th:value="${el.name}" name="name" class="form-control"></td>
             <td><input type="text" th:value="${el.middle_name}" name="middle_name" class="form-control"></td>
             <td><input type="text" th:value="${el.email}" name="email" class="form-control"></td>
-            <td><input type="text" th:value="${el.status}" name="status" class="form-control"></td>
-            <td><input type="text" th:value="${el.role}" name="role" class="form-control"></td>
+            <td>
+                <select name="status">
+                    <option th:each="status : ${T(ru.university.app.university.models.Status).values()}"
+                            th:value="${el.status}"
+                            th:text="${el.status}">
+                    </option>
+                </select>
+
+            <td>
+            <select name="role">
+                <option th:each="role : ${T(ru.university.app.university.models.Role).values()}"
+                        th:value="${el.role}"
+                        th:text="${el.role}">
+                </option>
+            </select>
         </tr>
     </table>
     <button type="submit" class="btn btn-success">Обновить</button>

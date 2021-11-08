@@ -54,9 +54,12 @@ public class UserController {
             @RequestParam String email,
             @RequestParam String name,
             @RequestParam String middle_name,
-            @RequestParam String surname) {
+            @RequestParam String surname,
+            @RequestParam Role role,
+            @RequestParam Status status
+            ) {
 
-        UserUniversity user = new UserUniversity(email, name, middle_name, surname);
+        UserUniversity user = new UserUniversity(email, name, middle_name, surname, role, status);
         userUniversityService.saveUser(user);
         return "пользователь добавлен";
     }
