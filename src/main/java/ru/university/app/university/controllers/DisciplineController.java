@@ -50,14 +50,14 @@ public class DisciplineController {
             @RequestParam Integer practices,
             @RequestParam Integer labs,
             @RequestParam Integer consultations,
-            @RequestParam boolean controlWork,
-            @RequestParam boolean courseWork,
-            @RequestParam boolean exam,
-            @RequestParam boolean zachet)
+            @RequestParam Boolean controlWork,
+            @RequestParam Boolean courseWork,
+            @RequestParam Boolean exam,
+            @RequestParam Boolean zachet)
     {
         Discipline discipline = new Discipline(specialty, name, lectures, practices, labs, consultations, controlWork, courseWork, exam, zachet);
        disciplineService.save(discipline);
-        return "пользователь добавлен";
+        return "дисциплина добавлена";
     }
 
     /*

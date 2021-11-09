@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
@@ -28,13 +29,21 @@ public class Discipline {
 
     private  Integer consultations;
 
-    private Boolean controlWork = false;
+    @ColumnDefault("0")
+    @Column(columnDefinition = "BOOLEAN")
+    private Boolean controlWork;
 
-    private Boolean courseWork = false;
+    @ColumnDefault("0")
+    @Column(columnDefinition = "BOOLEAN")
+    private Boolean courseWork;
 
-    private Boolean exam = false;
+    @ColumnDefault("0")
+    @Column(columnDefinition = "BOOLEAN")
+    private Boolean exam;
 
-    private  Boolean zachet = false;
+    @ColumnDefault("0")
+    @Column(columnDefinition = "BOOLEAN")
+    private  Boolean zachet;
 
     public Discipline(Specialty specialty, String name, Integer lectures, Integer practices, Integer labs, Integer consultations, Boolean controlWork, Boolean courseWork, Boolean exam, Boolean zachet) {
         this.specialty = specialty;
