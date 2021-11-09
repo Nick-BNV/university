@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Добавить дисциплину</title>
@@ -19,15 +20,11 @@
         </option>
     </select>
     <br>
-    <a>Контрольная работа </a><input type="checkbox" name="controlWork"  class="form-control"><br>
-    <a>Курсовая работа </a><input type="checkbox" name="courseWork" class="form-control"><br>
-    <a>Экзамен </a><input type="checkbox" name="exam" class="form-control"><br>
-    <a>Зачет </a><input type="checkbox" name="zachet" class="form-control"><br>
-
-
+    <a>Контрольная работа </a><input type="checkbox" name="controlWork" value="true" class="form-control"> <input type="checkbox" name="controlWork" value="false" class="form-control"> <br>
+    <a>Курсовая работа </a><input type="checkbox" name="courseWork" value="true" class="form-control"> <input type="checkbox" name="courseWork" value="false" class="form-control"><br>
+    <a>Экзамен </a><input type="checkbox" name="exam" value="true" class="form-control"> <input type="checkbox" name="exam" value="false" class="form-control"><br>
+    <a>Зачет </a><input type="checkbox" name="zachet" value="true" class="form-control"> <input type="checkbox" name="zachet" value="false" class="form-control"><br>
     <button type="submit" class="btn btn-success">добавить</button>
 </form>
-
-
 </body>
 </html>

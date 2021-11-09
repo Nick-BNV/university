@@ -3,6 +3,7 @@ package ru.university.app.university.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.university.app.university.models.*;
@@ -55,8 +56,8 @@ public class DisciplineController {
             @RequestParam Boolean exam,
             @RequestParam Boolean zachet)
     {
-        Discipline discipline = new Discipline(specialty, name, lectures, practices, labs, consultations, controlWork, courseWork, exam, zachet);
-       disciplineService.save(discipline);
+       Discipline discipline = new Discipline(specialty, name, lectures, practices, labs, consultations, controlWork, courseWork, exam, zachet);
+        disciplineService.save(discipline);
         return "дисциплина добавлена";
     }
 
