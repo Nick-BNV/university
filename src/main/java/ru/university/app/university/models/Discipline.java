@@ -1,7 +1,9 @@
 package ru.university.app.university.models;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
@@ -26,13 +28,24 @@ public class Discipline {
 
     private  Integer consultations;
 
-    private boolean controlWork;
+    private Boolean controlWork = false;
 
-    private boolean courseWork;
+    private Boolean courseWork = false;
 
-    private boolean exam;
+    private Boolean exam = false;
 
-    private  boolean zachet;
+    private  Boolean zachet = false;
 
-
+    public Discipline(Specialty specialty, String name, Integer lectures, Integer practices, Integer labs, Integer consultations, Boolean controlWork, Boolean courseWork, Boolean exam, Boolean zachet) {
+        this.specialty = specialty;
+        this.name = name;
+        this.lectures = lectures;
+        this.practices = practices;
+        this.labs = labs;
+        this.consultations = consultations;
+        this.controlWork = controlWork;
+        this.courseWork = courseWork;
+        this.exam = exam;
+        this.zachet = zachet;
+    }
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public interface DisciplineService {
     public Iterable<Discipline> getAll();
 
-    public void saveGroup(Discipline discipline);
+    public void save(Discipline discipline);
 
     public ArrayList<Discipline> details (Long id);
 

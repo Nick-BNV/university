@@ -23,7 +23,7 @@ public class DisciplineServiceImpl implements DisciplineService {
     }
 
     @Override
-    public void saveGroup(Discipline discipline) {
+    public void save(Discipline discipline) {
         disciplineRepo.save(discipline);
     }
 
