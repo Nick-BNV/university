@@ -2,17 +2,31 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Редактирование группы</title>
+    <title>Редактирование дисциплины</title>
 </head>
 <body>
-<h1>Редактирование группы</h1>
+<h1>Редактирование дисциплины</h1>
 <form action="edit" method="post">
     <table>
-        <tr th:each="el:${group}">
-            <td><input type="text" th:value="${el.groupName}" name="group_name" class="form-control"></td>
-            <td><input type="text" th:value="${el.studentCount}" name="studentCount" class="form-control"></td>
-            <td><input type="text" th:value="${el.course}" name="course" class="form-control"></td>
-            <td><input type="text" th:value="${el.specialty}" name="specialty" class="form-control"></td>
+        <tr th:each="el:${array}">
+            <td><input type="text" th:value="${el.name}" name="name" class="form-control"></td>
+            <td>
+                <select name="specialty">
+                    <option th:each="specialty : ${T(ru.university.app.university.models.Specialty).values()}"
+                            th:value="${el.specialty}"
+                            th:text="${el.specialty}">
+                    </option>
+                </select>
+
+            </td>
+            <td><input type="text" th:value="${el.lectures}" name="lectures" class="form-control"></td>
+            <td><input type="text" th:value="${el.practices}" name="practices" class="form-control"></td>
+            <td><input type="text" th:value="${el.labs}" name="labs" class="form-control"></td>
+            <td><input type="text" th:value="${el.consultations}" name="consultations" class="form-control"></td>
+            <td><input type="text" th:value="${el.controlWork}" name="controlWork" class="form-control"></td>
+            <td><input type="text" th:value="${el.courseWork}" name="courseWork" class="form-control"></td>
+            <td><input type="text" th:value="${el.exam}" name="exam" class="form-control"></td>
+            <td><input type="text" th:value="${el.zachet}" name="zachet" class="form-control"></td>
 
         </tr>
     </table>

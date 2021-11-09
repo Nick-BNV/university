@@ -61,63 +61,69 @@ public class DisciplineController {
         return "дисциплина добавлена";
     }
 
-    /*
+
 
     @GetMapping(path = "/details/{id}")
     @PreAuthorize("hasAuthority('developers:read')")
-    public String userDetails (@PathVariable(value = "id") Long id, Model model){
-        if(userUniversityService.existById(id)){
-            ArrayList<UserUniversity> user = userUniversityService.details(id);
-            model.addAttribute("user", user);
+    public String details (@PathVariable(value = "id") Long id, Model model){
+        if(disciplineService.existById(id)){
+            ArrayList<Discipline> array = disciplineService.details(id);
+            model.addAttribute("array", array);
         }
         else {
-            getAllUsers(model);
-            return "/admin/all";}
-        return "/admin/details";
+            getAllDiscipline(model);
+            return "/discipline/all";}
+        return "/discipline/details";
     }
 
     @GetMapping(path = "/details/{id}/edit")
     @PreAuthorize("hasAuthority('developers:write')")
-    public String userEdit (@PathVariable(value = "id") Long id, Model model){
-        if(userUniversityService.existById(id)){
-            ArrayList<UserUniversity> user = userUniversityService.details(id);
-            model.addAttribute("user", user);
+    public String edit (@PathVariable(value = "id") Long id, Model model){
+        if(disciplineService.existById(id)){
+            ArrayList<Discipline> array = disciplineService.details(id);
+            model.addAttribute("array", array);
         }
         else {
-            getAllUsers(model);
-            return "/admin/all";}
-        return "/admin/edit";
+            getAllDiscipline(model);
+            return "/discipline/all";}
+        return "/discipline/edit";
     }
 
     @PostMapping(path="/details/{id}/edit")
     @ResponseBody
     @PreAuthorize("hasAuthority('developers:write')")
-    public  String editUser (@PathVariable(value = "id") Long id,
-                             @RequestParam String surname,
+    public  String edit (@PathVariable(value = "id") Long id,
+                             @RequestParam Specialty specialty,
                              @RequestParam String name,
-                             @RequestParam String middle_name,
-                             @RequestParam String email,
-                             @RequestParam Status status,
-                             @RequestParam Role role) {
-        UserUniversity user = userUniversityService.getUserById(id);
-        user.setSurname(surname);
-        user.setName(name);
-        user.setMiddle_name(middle_name);
-        user.setEmail(email);
-        user.setStatus(status);
-        user.setRole(role);
-        userUniversityService.saveUser(user);
+                             @RequestParam Integer lectures,
+                             @RequestParam Integer practices,
+                             @RequestParam Integer labs,
+                             @RequestParam Integer consultations,
+                             @RequestParam Boolean controlWork,
+                             @RequestParam Boolean courseWork,
+                             @RequestParam Boolean exam,
+                             @RequestParam Boolean zachet) {
+        Discipline discipline = disciplineService.getDiscipline(id);
+        discipline.setSpecialty(specialty);
+        discipline.setName(name);
+        discipline.setLectures(lectures);
+        discipline.setPractices(practices);
+        discipline.setLabs(labs);
+        discipline.setConsultations(consultations);
+        discipline.setControlWork(controlWork);
+        discipline.setCourseWork(courseWork);
+        discipline.setExam(exam);
+        discipline.setZachet(zachet);
+        disciplineService.save(discipline);
         return "Данные обновлены";
     }
 
     @PostMapping(path="/details/{id}/delete")
     @ResponseBody
     @PreAuthorize("hasAuthority('developers:write')")
-    public  String deleteUser (@PathVariable(value = "id") Long id) {
-        userUniversityService.deleteUser(id);
+    public  String delete (@PathVariable(value = "id") Long id) {
+        disciplineService.deleteDiscipline(id);
         return "Пользователь удален";
     }
-*/
-
 
 }

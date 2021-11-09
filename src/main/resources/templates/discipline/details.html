@@ -6,14 +6,19 @@
 </head>
 <body>
 <table>
-    <tr th:each="el:${group}">
+    <tr th:each="el:${array}">
         <td th:text="${el.id}"/>
-        <td th:text="${el.groupName}"/>
-        <td th:text="${el.studentCount}"/>
-        <td th:text="${el.course}"/>
+        <td th:text="${el.name}"/>
         <td th:text="${el.specialty}"/>
-        <td><form method="post" th:action="'/group/details/'+${el.id}+'/delete'"> <button type="submit">удалить</button></form></td>
-        <td><form method="get" th:action="'/group/details/'+${el.id}+'/edit'"> <button type="submit">редактировать</button></form></td>
+        <td th:text="${el.practices}"/>
+        <td th:text="${el.labs}"/>
+        <td th:text="${el.consultations}"/>
+        <td th:text="${el.controlWork}"/>
+        <td th:text="${el.courseWork}"/>
+        <td th:text="${el.exam}"/>
+        <td th:text="${el.zachet}"/>
+        <td><form method="post" th:action="'/discipline/details/'+${el.id}+'/delete'"> <button type="submit">удалить</button></form></td>
+        <td><form method="get" th:action="'/discipline/details/'+${el.id}+'/edit'"> <button type="submit">редактировать</button></form></td>
 
     </tr>
 </table>
