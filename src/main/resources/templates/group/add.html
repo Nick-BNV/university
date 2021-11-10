@@ -5,6 +5,7 @@
     <title>Добавить группу</title>
 </head>
 <body>
+<header th:insert="blocks/header::header"></header>
 <h1>Добавитьучебную группу</h1>
 <form action="add" method="post">
     <input type="text" name="group_name" placeholder="название группы" class="form-control"><br>
@@ -23,7 +24,7 @@
         </option>
     </select>
     <br>
-    <button type="submit" class="btn btn-success">добавить</button>
+    <a type="submit" class="btn btn-success">добавить</a>
 </form>
 </body>
 </html>

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<header th:insert="blocks/header::header"></header>
+<body>
+<p th:text="'Добрый день пользователь '+${name}+'!'" />
+</body>
+</html>

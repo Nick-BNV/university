@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<header th:insert="blocks/header::header"></header>
 <table>
     <tr th:each="el:${user}">
         <td th:text="${el.id}"/>

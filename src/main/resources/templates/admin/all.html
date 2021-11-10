@@ -5,6 +5,7 @@
     <title>Список пользователей</title>
 </head>
 <body>
+<header th:insert="blocks/header::header"></header>
 <h1>Список пользователей</h1>
 <table>
 <tr th:each="el:${user}">
@@ -16,5 +17,6 @@
         <td><a th:href="'/admin/details/'+${el.id}">Подробнее</a></td>
 </tr>
 </table>
+<a href="/admin/add">Создать</a>
 </body>
 </html>

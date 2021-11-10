@@ -5,6 +5,7 @@
     <title>Учебные дисциплины</title>
 </head>
 <body>
+<header th:insert="blocks/header::header"></header>
 <h1>Учебные дисциплины</h1>
 <table>
 <tr th:each="el:${discipline}">
@@ -22,5 +23,6 @@
         <td><a th:href="'/discipline/details/'+${el.id}">Подробнее</a></td>
 </tr>
 </table>
+<a href="/discipline/add">Создать</a>
 </body>
 </html>

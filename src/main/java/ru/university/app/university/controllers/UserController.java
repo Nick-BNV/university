@@ -23,12 +23,7 @@ public class UserController {
         this.userUniversityService = userUniversityService;
     }
 
-    @GetMapping("/success")
-    @PreAuthorize("hasAuthority('developers:read')")
-    @ResponseBody
-    public String success (Principal principal){
-        return "privet "+principal.getName() +"!";
-    }
+
 
 
     @GetMapping(path="/all")
