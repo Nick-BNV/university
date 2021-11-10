@@ -20,4 +20,6 @@ public interface UserUniversityService {
 
    public void deleteUser (Long id);
 
+   public ArrayList<UserUniversity> getByEmail (String email);
+
 }

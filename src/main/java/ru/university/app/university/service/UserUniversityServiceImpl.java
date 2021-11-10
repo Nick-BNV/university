@@ -49,5 +49,13 @@ public class UserUniversityServiceImpl implements  UserUniversityService {
     usersRepo.deleteById(id);
     }
 
+    @Override
+    public ArrayList<UserUniversity> getByEmail(String email) {
+        Optional<UserUniversity> optional = usersRepo.findByEmail(email);
+        ArrayList<UserUniversity> list= new ArrayList<>();
+        optional.ifPresent(list::add);
+        return list;
+    }
+
 
 }
