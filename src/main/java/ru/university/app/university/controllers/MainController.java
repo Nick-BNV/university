@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import ru.university.app.university.models.UserUniversity;
+import ru.university.app.university.service.DisciplineService;
 import ru.university.app.university.service.UserUniversityServiceImpl;
 
 import java.security.Principal;
@@ -20,6 +21,7 @@ public class MainController {
     @Autowired
     UserUniversityServiceImpl userUniversityService;
 
+
     @GetMapping("/")
     @PreAuthorize("hasAuthority('developers:read')")
     public String start (Model model, Principal principal){
@@ -28,4 +30,6 @@ public class MainController {
         model.addAttribute("name", s);
         return "/index";
     }
+
+
 }

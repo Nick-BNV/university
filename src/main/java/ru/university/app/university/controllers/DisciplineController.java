@@ -126,4 +126,10 @@ public class DisciplineController {
         return "Пользователь удален";
     }
 
+    @GetMapping(path = "/addUserDis")
+    @PreAuthorize("hasAuthority('developers:write')")
+    public  String addUserDis (){
+        return "/admin/addUserDis";
+    }
+
 }
