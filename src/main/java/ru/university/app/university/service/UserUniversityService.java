@@ -22,4 +22,6 @@ public interface UserUniversityService {
 
    public ArrayList<UserUniversity> getByEmail (String email);
 
+   public Iterable<UserUniversity> findBySurname (String surname);
+
 }

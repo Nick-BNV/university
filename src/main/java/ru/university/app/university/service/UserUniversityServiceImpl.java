@@ -57,5 +57,10 @@ public class UserUniversityServiceImpl implements  UserUniversityService {
         return list;
     }
 
+    @Override
+    public Iterable<UserUniversity> findBySurname(String surname) {
+        return usersRepo.findBySurname(surname);
+    }
+
 
 }

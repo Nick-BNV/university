@@ -31,6 +31,15 @@ public class GroupController {
         return "/group/all";
     }
 
+    @PostMapping(path="/all")
+    @PreAuthorize("hasAnyAuthority('developers:read')")
+    public String filter(Model model, @RequestParam String filter){
+        Iterable<StudyGroup> iterable = groupService.findByName(filter);
+        model.addAttribute("group", iterable);
+        return "/group/all";
+    }
+
+
     @GetMapping(path = "/add")
     @PreAuthorize("hasAuthority('developers:read')")
     public String addGroup (){

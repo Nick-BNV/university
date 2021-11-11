@@ -7,6 +7,9 @@
 <body>
 <header th:insert="blocks/header::header"></header>
 <h1>Список пользователей</h1>
+<form method="post" action="all"><a>Поиск по фамилии</a><input type="text" name="filter">
+<button type="submit">поиск</button> </form>
+
 <table>
 <tr th:each="el:${user}">
         <td th:text="${el.id}"/>

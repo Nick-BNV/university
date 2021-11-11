@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Учебные группы</title>
@@ -8,6 +8,10 @@
 <header th:insert="blocks/header::header"></header>
 
 <h1>Учебные группы</h1>
+<form method="post" action="all">
+<a>Поиск по названию</a><input name="filter" type="text" class="form-control"/>
+<button type="submit">Поиск</button>
+</form>
 <table>
 <tr th:each="el:${group}">
         <td th:text="${el.id}"/>

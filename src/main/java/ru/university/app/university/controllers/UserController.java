@@ -24,8 +24,6 @@ public class UserController {
     }
 
 
-
-
     @GetMapping(path="/all")
     @PreAuthorize("hasAuthority('developers:read')")
     public String getAllUsers(Model model) {
@@ -34,7 +32,14 @@ public class UserController {
         return "/admin/all";
     }
 
-
+    @PostMapping(path = "/all")
+    @PreAuthorize("hasAuthority('developers:read')")
+    public String findBySurname (Model model,
+                                 @RequestParam String filter){
+        Iterable<UserUniversity> iterable = userUniversityService.findBySurname(filter);
+        model.addAttribute("user", iterable);
+        return "/admin/all";
+    }
     @GetMapping(path = "/add")
     @PreAuthorize("hasAuthority('developers:read')")
     public String addForm (){

@@ -47,4 +47,9 @@ public class GroupServiceImpl implements GroupService {
     public void deleteGroup(Long id) {
         studyGroupRepo.deleteById(id);
     }
+
+    @Override
+    public Iterable<StudyGroup> findByName(String name) {
+        return studyGroupRepo.findByGroupName(name);
+    }
 }

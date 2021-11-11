@@ -17,4 +17,6 @@ public interface GroupService {
     public StudyGroup getGroup (Long id);
 
     public void deleteGroup (Long id);
+
+    public Iterable<StudyGroup> findByName (String name);
 }
