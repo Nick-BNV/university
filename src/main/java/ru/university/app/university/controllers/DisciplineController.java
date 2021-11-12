@@ -3,13 +3,11 @@ package ru.university.app.university.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.university.app.university.models.*;
 import ru.university.app.university.service.DisciplineServiceImpl;
 
-import java.security.Principal;
 import java.util.ArrayList;
 
 @Controller

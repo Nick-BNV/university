@@ -15,13 +15,14 @@ public class ListOfDisciplines {
     private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
     private UserUniversity userUniversity;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "dis_id")
     private Discipline discipline;
 
-
+    public ListOfDisciplines(UserUniversity userUniversity, Discipline discipline) {
+        this.userUniversity = userUniversity;
+        this.discipline = discipline;
+    }
 }

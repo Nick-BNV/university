@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Дисциплины преподавателей</title>
+</head>
+<body>
+<h1>Дисциплины преподавателей</h1>
+<form action="all" method="get">
+    <table>
+        <tr th:each="el:${list}">
+            <td th:text="${el.id}"/>
+            <td th:text="${el.userUniversity.getSurname()}"/>
+            <td th:text="${el.discipline.getName}"/>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
