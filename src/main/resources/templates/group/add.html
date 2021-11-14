@@ -8,8 +8,8 @@
 <header th:insert="blocks/header::header"></header>
 <h1>Добавитьучебную группу</h1>
 <form action="add" method="post">
-    <input type="text" name="group_name" placeholder="название группы" class="form-control"><br>
-    <input type="text" name="studentCount" placeholder="Количество студентов" class="form-control"><br>
+    <input type="text" name="group_name" placeholder="название группы" ><br>
+    <input type="text" name="studentCount" placeholder="Количество студентов" ><br>
     <select name="course">
         <option th:each="course : ${T(ru.university.app.university.models.Course).values()}"
                 th:value="${course}"

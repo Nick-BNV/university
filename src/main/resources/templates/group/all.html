@@ -5,14 +5,23 @@
     <title>Учебные группы</title>
 </head>
 <body>
+
 <header th:insert="blocks/header::header"></header>
 
 <h1>Учебные группы</h1>
 <form method="post" action="all">
-<a>Поиск по названию</a><input name="filter" type="text" class="form-control"/>
+<a>Поиск по названию</a><input name="filter" type="text"/>
 <button type="submit">Поиск</button>
 </form>
-<table>
+<table class="table table-striped">
+    <tr>
+        <td>ID</td>
+        <td>Название группы</td>
+        <td>Количество студентов</td>
+        <td>Курс</td>
+        <td>Спецальность</td>
+        <td></td>
+    </tr>
 <tr th:each="el:${group}">
         <td th:text="${el.id}"/>
         <td th:text="${el.groupName}"/>

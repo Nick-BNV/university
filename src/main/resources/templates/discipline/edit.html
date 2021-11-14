@@ -8,7 +8,21 @@
 <header th:insert="blocks/header::header"></header>
 <h1>Редактирование дисциплины</h1>
 <form action="edit" method="post">
-    <table>
+    <table class="table table-striped">
+        <tr>
+            <td>Дисциплина</td>
+            <td>Спецальность</td>
+            <td>Лекции</td>
+            <td>Практические работы</td>
+            <td>Лабораторные работы</td>
+            <td>Консультации</td>
+            <td>Контрольная работа</td>
+            <td>Курсовая работа</td>
+            <td>Экзамен</td>
+            <td>Зачет</td>
+            <td></td>
+
+        </tr>
         <tr th:each="el:${array}">
             <td><input type="text" th:value="${el.name}" name="name" class="form-control"></td>
             <td>

@@ -5,9 +5,16 @@
     <title>Дисциплины преподавателей</title>
 </head>
 <body>
+<header th:insert="blocks/header::header"></header>
 <h1>Дисциплины преподавателей</h1>
 <form action="all" method="get">
-    <table>
+    <table class="table table-striped">
+        <tr>
+            <td>ID</td>
+            <td>Преподаватель</td>
+            <td>Дисциплина</td>
+        </tr>
+
         <tr th:each="el:${list}">
             <td th:text="${el.id}"/>
             <td th:text="${el.userUniversity.getSurname()}"/>

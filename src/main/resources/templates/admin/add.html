@@ -7,13 +7,14 @@
 <body>
 <header th:insert="blocks/header::header"></header>
 <h1>Добавить участника</h1>
+<p th:text="${text1}" />
 <form action="add" method="post">
 
 
-    <input type="text" name="email" placeholder="email" class="form-control"><br>
-    <input type="text" name="name" placeholder="имя" class="form-control"><br>
-    <input type="text" name="middle_name" placeholder="отчество" class="form-control"><br>
-    <input type="text" name="surname" placeholder="фамилия" class="form-control"><br>
+    <input type="text" name="email" placeholder="email" ><br>
+    <input type="text" name="name" placeholder="имя" ><br>
+    <input type="text" name="middle_name" placeholder="отчество" ><br>
+    <input type="text" name="surname" placeholder="фамилия" ><br>
     <select name="role">
         <option th:each="role : ${T(ru.university.app.university.models.Role).values()}"
                 th:value="${role}"

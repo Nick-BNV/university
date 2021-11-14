@@ -8,7 +8,7 @@
 <header th:insert="blocks/header::header"></header>
 <h1>Редактирование группы</h1>
 <form action="edit" method="post">
-    <table>
+    <table class="table table-striped">
         <tr th:each="el:${group}">
             <td><input type="text" th:value="${el.groupName}" name="group_name" class="form-control"></td>
             <td><input type="text" th:value="${el.studentCount}" name="studentCount" class="form-control"></td>

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.university.app.university.models.*;
 import ru.university.app.university.service.UserUniversityService;
 
+import javax.swing.*;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -42,26 +43,30 @@ public class UserController {
     }
     @GetMapping(path = "/add")
     @PreAuthorize("hasAuthority('developers:read')")
-    public String addForm (){
+    public String addForm (Model model){
+
+        model.addAttribute("text1", "Внесите данные о пользователе");
         return "/admin/add";
     }
 
 
     @PostMapping(path="/add")
     @PreAuthorize("hasAuthority('developers:write')")
-    @ResponseBody
+
     public  String addNewUser (
             @RequestParam String email,
             @RequestParam String name,
             @RequestParam String middle_name,
             @RequestParam String surname,
             @RequestParam Role role,
-            @RequestParam Status status
+            @RequestParam Status status,
+            Model model
             ) {
 
         UserUniversity user = new UserUniversity(email, name, middle_name, surname, role, status);
         userUniversityService.saveUser(user);
-        return "пользователь добавлен";
+        model.addAttribute("text1", "Пользователь добавлен!");
+        return "/admin/add";
     }
 
     @GetMapping(path = "/details/{id}")

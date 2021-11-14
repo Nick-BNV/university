@@ -7,7 +7,23 @@
 <body>
 <header th:insert="blocks/header::header"></header>
 <h1>Учебные дисциплины</h1>
-<table>
+<table class="table table-striped">
+
+        <tr>
+                <td>ID</td>
+                <td>Дисциплина</td>
+                <td>Спецальность</td>
+                <td>Лекции</td>
+                <td>Практические работы</td>
+                <td>Лабораторные работы</td>
+                <td>Консультации</td>
+                <td>Контрольная работа</td>
+                <td>Курсовая работа</td>
+                <td>Экзамен</td>
+                <td>Зачет</td>
+                <td></td>
+
+        </tr>
 <tr th:each="el:${discipline}">
         <td th:text="${el.id}"/>
         <td th:text="${el.name}"/>

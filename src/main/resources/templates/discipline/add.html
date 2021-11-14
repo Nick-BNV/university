@@ -9,11 +9,11 @@
 <header th:insert="blocks/header::header"></header>
 <h1>Добавить дисциплину</h1>
 <form action="add" method="post">
-    <input type="text" name="name" placeholder="название дисциплины" class="form-control"><br>
-    <input type="text" name="lectures" placeholder="Количество лекций" class="form-control"><br>
-    <input type="text" name="practices" placeholder="Количество практик" class="form-control"><br>
-    <input type="text" name="labs" placeholder="Количество лабораторных" class="form-control"><br>
-    <input type="text" name="consultations" placeholder="консультаций" class="form-control"><br>
+    <input type="text" name="name" placeholder="название дисциплины" ><br>
+    <input type="text" name="lectures" placeholder="Количество лекций" ><br>
+    <input type="text" name="practices" placeholder="Количество практик" ><br>
+    <input type="text" name="labs" placeholder="Количество лабораторных" ><br>
+    <input type="text" name="consultations" placeholder="консультаций" ><br>
     <select name="specialty">
         <option th:each="specialty : ${T(ru.university.app.university.models.Specialty).values()}"
                 th:value="${specialty}"
@@ -21,10 +21,38 @@
         </option>
     </select>
     <br>
-    <a>Контрольная работа </a><input type="checkbox" name="controlWork" value="true" class="form-control"> <input type="checkbox" name="controlWork" value="false" class="form-control"> <br>
-    <a>Курсовая работа </a><input type="checkbox" name="courseWork" value="true" class="form-control"> <input type="checkbox" name="courseWork" value="false" class="form-control"><br>
-    <a>Экзамен </a><input type="checkbox" name="exam" value="true" class="form-control"> <input type="checkbox" name="exam" value="false" class="form-control"><br>
-    <a>Зачет </a><input type="checkbox" name="zachet" value="true" class="form-control"> <input type="checkbox" name="zachet" value="false" class="form-control"><br>
+    <table>
+        <tr>
+            <td></td>
+            <td>есть</td>
+            <td>нет</td>
+        </tr>
+        <tr>
+            <td>Контрольная работа</td>
+            <td><input type="checkbox" name="controlWork" value="true"></td>
+            <td><input type="checkbox" name="controlWork" value="false" ></td>
+        </tr>
+
+        <tr>
+            <td>Курсовая работа</td>
+            <td><input type="checkbox" name="courseWork" value="true" ></td>
+            <td><input type="checkbox" name="courseWork" value="false" ></td>
+        </tr>
+
+        <tr>
+            <td>Экзамен</td>
+            <td><input type="checkbox" name="exam" value="true" ></td>
+            <td><input type="checkbox" name="exam" value="false" ></td>
+        </tr>
+
+        <tr>
+            <td>Зачет</td>
+            <td><input type="checkbox" name="zachet" value="true" ></td>
+            <td><input type="checkbox" name="zachet" value="false" ></td>
+        </tr>
+
+    </table>
+
     <button type="submit" class="btn btn-success">добавить</button>
 </form>
 </body>

@@ -6,7 +6,16 @@
 </head>
 <body>
 <header th:insert="blocks/header::header"></header>
-<table>
+<table class="table table-striped">
+    <tr>
+        <td>ID</td>
+        <td>Фамилия</td>
+        <td>Имя</td>
+        <td>Отчество</td>
+        <td>Активен/заблокирован</td>
+        <td>Роль</td>
+        <td></td>
+    </tr>
     <tr th:each="el:${user}">
         <td th:text="${el.id}"/>
         <td th:text="${el.surname}"/>

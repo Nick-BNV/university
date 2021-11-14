@@ -8,7 +8,7 @@
 <header th:insert="blocks/header::header"></header>
 <h1>Редактирование пользователя</h1>
 <form action="edit" method="post">
-    <table>
+    <table class="table table-striped">
         <tr th:each="el:${user}">
             <td><input type="text" th:value="${el.surname}" name="surname" class="form-control"></td>
             <td><input type="text" th:value="${el.name}" name="name" class="form-control"></td>

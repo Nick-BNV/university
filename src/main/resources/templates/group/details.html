@@ -6,7 +6,7 @@
 </head>
 <body>
 <header th:insert="blocks/header::header"></header>
-<table>
+<table class="table table-striped">
     <tr th:each="el:${group}">
         <td th:text="${el.id}"/>
         <td th:text="${el.groupName}"/>
