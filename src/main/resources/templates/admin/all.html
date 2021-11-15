@@ -29,6 +29,9 @@
         <td><a th:href="'/admin/details/'+${el.id}">Подробнее</a></td>
 </tr>
 </table>
-<a href="/admin/add">Создать</a>
+
+<form action="/admin/add">
+    <button type="submit">Создать</button>
+</form>
 </body>
 </html>

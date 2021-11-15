@@ -49,4 +49,9 @@ public class DisciplineServiceImpl implements DisciplineService {
     public void deleteDiscipline(Long id) {
     disciplineRepo.deleteById(id);
     }
+
+    @Override
+    public Iterable<Discipline> findByName(String name) {
+        return disciplineRepo.findByNameIsContaining(name);
+    }
 }

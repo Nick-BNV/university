@@ -17,4 +17,6 @@ public interface DisciplineService {
     public Discipline getDiscipline (Long id);
 
     public void deleteDiscipline (Long id);
+
+    public Iterable<Discipline> findByName (String name);
 }

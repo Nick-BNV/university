@@ -8,4 +8,6 @@ public interface ListOfDisciplinesService {
 
     public void save (ListOfDisciplines listOfDisciplines);
 
+    public Iterable<ListOfDisciplines> findBySurname (String surname);
+
 }

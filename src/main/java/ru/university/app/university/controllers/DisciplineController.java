@@ -32,6 +32,15 @@ public class DisciplineController {
     }
 
 
+    @PostMapping(path = "/all")
+    @PreAuthorize("hasAuthority('developers:read')")
+    public String findByName (@RequestParam String filter,
+                              Model model){
+        Iterable<Discipline> iterable = disciplineService.findByName(filter);
+        model.addAttribute("discipline", iterable);
+        return "/discipline/all";
+    }
+
     @GetMapping(path = "/add")
     @PreAuthorize("hasAuthority('developers:read')")
     public String addForm (){

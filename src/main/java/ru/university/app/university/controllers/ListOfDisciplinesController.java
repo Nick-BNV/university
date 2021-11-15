@@ -34,6 +34,15 @@ public class ListOfDisciplinesController {
         return "ListOfDisciplines/all";
     }
 
+    @PostMapping(path = "all")
+    @PreAuthorize("hasAnyAuthority('developers:read')")
+    public String filter (String filter,
+                            Model model){
+        Iterable<ListOfDisciplines>iterable = listOfDisciplinesServiceImpl.findBySurname(filter);
+        model.addAttribute("list", iterable);
+        return "ListOfDisciplines/all";
+    }
+
     @GetMapping(path = "add")
     @PreAuthorize("hasAuthority('developers:read')")
     public String add(){
@@ -48,9 +57,8 @@ public class ListOfDisciplinesController {
             @RequestParam UserUniversity user,
             @RequestParam Discipline discipline) {
 
-        ListOfDisciplines l =new ListOfDisciplines();
-        l.setDiscipline(discipline);
-        l.setUserUniversity(user);
+        ListOfDisciplines l =new ListOfDisciplines(user, discipline);
+
         listOfDisciplinesServiceImpl.save(l);
         return "группа добавлена";
     }
@@ -67,5 +75,7 @@ public class ListOfDisciplinesController {
     public Iterable <Discipline>  getDiscipline (){
         return disciplineService.getAll();
     }
+
+
 
 }

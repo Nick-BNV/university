@@ -22,4 +22,9 @@ public class ListOfDisciplinesServiceImpl implements ListOfDisciplinesService{
     public void save(ListOfDisciplines listOfDisciplines) {
         listOfDisciplinesRepo.save(listOfDisciplines);
     }
+
+    @Override
+    public Iterable<ListOfDisciplines> findBySurname(String surname) {
+        return listOfDisciplinesRepo.findByUserUniversity_Surname(surname);
+    }
 }

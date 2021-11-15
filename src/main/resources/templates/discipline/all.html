@@ -7,6 +7,10 @@
 <body>
 <header th:insert="blocks/header::header"></header>
 <h1>Учебные дисциплины</h1>
+<form method="post" action="all">
+        <a>Поиск по названию</a><input type="text" name="filter"/>
+        <button type="submit">Поиск</button>
+</form>
 <table class="table table-striped">
 
         <tr>
@@ -39,6 +43,9 @@
         <td><a th:href="'/discipline/details/'+${el.id}">Подробнее</a></td>
 </tr>
 </table>
-<a href="/discipline/add">Создать</a>
+
+<form action="/discipline/add">
+        <button type="submit">Создать</button>
+</form>
 </body>
 </html>

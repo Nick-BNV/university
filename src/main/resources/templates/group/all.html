@@ -31,6 +31,9 @@
         <td><a th:href="'/group/details/'+${el.id}">Подробнее</a></td>
 </tr>
 </table>
-<a href="/group/add">Создать</a>
+
+<form action="/group/add">
+    <button type="submit">Создать</button>
+</form>
 </body>
 </html>
