@@ -7,14 +7,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.university.app.university.models.*;
-import ru.university.app.university.service.ListOfDisciplinesService;
+import ru.university.app.university.service.DisciplineServiceImpl;
 import ru.university.app.university.service.ListOfDisciplinesServiceImpl;
+import ru.university.app.university.service.UserUniversityServiceImpl;
+
+import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/ListOfDisciplines")
 public class ListOfDisciplinesController {
     @Autowired
     ListOfDisciplinesServiceImpl listOfDisciplinesServiceImpl;
+
+    @Autowired
+    UserUniversityServiceImpl userUniversityService;
+
+    @Autowired
+    DisciplineServiceImpl disciplineService;
+
 
     @GetMapping(path = "all")
     @PreAuthorize("hasAnyAuthority('developers:read')")
@@ -29,16 +39,28 @@ public class ListOfDisciplinesController {
     public String add(){
         return "ListOfDisciplines/add";
     }
+
+
     @PostMapping(path="/add")
     @ResponseBody
     @PreAuthorize("hasAuthority('developers:write')")
     public  String add (
-            @RequestParam UserUniversity user,
-            @RequestParam Discipline discipline) {
+            @RequestParam UserUniversity users,
+            @RequestParam Discipline disciplines) {
 
-        ListOfDisciplines l =new ListOfDisciplines(user, discipline);
+        ListOfDisciplines l =new ListOfDisciplines(users, disciplines);
         listOfDisciplinesServiceImpl.save(l);
         return "группа добавлена";
+    }
+
+    @ModelAttribute("users")
+    public Iterable<UserUniversity>  getUser (){
+        return userUniversityService.getAllUsers();
+    }
+
+    @ModelAttribute("disciplines")
+    public Iterable <Discipline>  getDiscipline (){
+        return disciplineService.getAll();
     }
 
 }

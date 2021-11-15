@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<header th:insert="blocks/header::header"></header>
 <h1>Назначение группы преподавателям</h1>
 <form action="add" method="post">
-    <input type="text" name="user">
-    <input type="text" name="discipline">
+    <select th:field="${users}">
+        <option value=""> Преподаватель </option>
+        <option th:each="user : ${users}" th:value="${user}" th:text="${user.name}"></option>
+    </select>
+    <select th:field="${disciplines}">
+        <option value=""> Дисциплина </option>
+        <option th:each="discipline : ${disciplines}" th:value="${discipline}" th:text="${discipline.name}"></option>
+    </select>
 
     <button type="submit" class="btn btn-success">добавить</button>
 </form>
+
+
 </body>
 </html>
