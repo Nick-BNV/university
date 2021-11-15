@@ -8,13 +8,13 @@
 <header th:insert="blocks/header::header"></header>
 <h1>Назначение группы преподавателям</h1>
 <form action="add" method="post">
-    <select th:field="${users}">
+    <select name="user">
         <option value=""> Преподаватель </option>
-        <option th:each="user : ${users}" th:value="${user}" th:text="${user.name}"></option>
+        <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.surname}"></option>
     </select>
-    <select th:field="${disciplines}">
+    <select name="discipline">
         <option value=""> Дисциплина </option>
-        <option th:each="discipline : ${disciplines}" th:value="${discipline}" th:text="${discipline.name}"></option>
+        <option th:each="discipline : ${disciplines}" th:value="${discipline.id}" th:text="${discipline.name}"></option>
     </select>
 
     <button type="submit" class="btn btn-success">добавить</button>

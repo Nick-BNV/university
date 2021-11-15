@@ -45,19 +45,24 @@ public class ListOfDisciplinesController {
     @ResponseBody
     @PreAuthorize("hasAuthority('developers:write')")
     public  String add (
-            @RequestParam UserUniversity users,
-            @RequestParam Discipline disciplines) {
+            @RequestParam UserUniversity user,
+            @RequestParam Discipline discipline) {
 
-        ListOfDisciplines l =new ListOfDisciplines(users, disciplines);
+        ListOfDisciplines l =new ListOfDisciplines();
+        l.setDiscipline(discipline);
+        l.setUserUniversity(user);
         listOfDisciplinesServiceImpl.save(l);
         return "группа добавлена";
     }
 
+    @PreAuthorize("hasAuthority('developers:read')")
     @ModelAttribute("users")
     public Iterable<UserUniversity>  getUser (){
         return userUniversityService.getAllUsers();
     }
 
+
+    @PreAuthorize("hasAuthority('developers:read')")
     @ModelAttribute("disciplines")
     public Iterable <Discipline>  getDiscipline (){
         return disciplineService.getAll();
