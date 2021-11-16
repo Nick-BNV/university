@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -42,6 +44,8 @@ public class UserUniversity {
     private Role role;
 
 
+    @OneToMany (mappedBy = "userUniversity", cascade = CascadeType.ALL)
+    List<ListOfDisciplines> list;
 
     public UserUniversity(String email,  String name, String middle_name, String surname, Role role, Status status) {
         this.email = email;

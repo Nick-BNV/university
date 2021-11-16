@@ -7,6 +7,8 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -19,7 +21,8 @@ public class Discipline {
     @Enumerated(value = EnumType.STRING)
     private Specialty specialty;
 
-
+    @OneToMany(mappedBy = "discipline", cascade = CascadeType.ALL)
+    List<ListOfDisciplines> list;
 
     private String name;
 
