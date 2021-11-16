@@ -43,6 +43,19 @@ public class ListOfDisciplinesController {
         return "ListOfDisciplines/all";
     }
 
+
+    @PostMapping(path = "{id}/delete")
+    @PreAuthorize("hasAuthority('developers:write')")
+    public String deleteList (@PathVariable(value = "id") Long id, Model model ){
+        listOfDisciplinesServiceImpl.delete(id);
+        Iterable<ListOfDisciplines> iterable = listOfDisciplinesServiceImpl.findAll();
+        model.addAttribute("list", iterable);
+        return "ListOfDisciplines/all";
+    }
+
+
+
+
     @GetMapping(path = "add")
     @PreAuthorize("hasAuthority('developers:read')")
     public String add(){

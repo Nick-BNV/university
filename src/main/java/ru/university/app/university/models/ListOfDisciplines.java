@@ -14,7 +14,7 @@ public class ListOfDisciplines {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne( fetch = FetchType.EAGER)
     private UserUniversity userUniversity;
 
 

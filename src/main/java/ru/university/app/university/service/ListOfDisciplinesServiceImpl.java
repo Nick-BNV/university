@@ -27,4 +27,9 @@ public class ListOfDisciplinesServiceImpl implements ListOfDisciplinesService{
     public Iterable<ListOfDisciplines> findBySurname(String surname) {
         return listOfDisciplinesRepo.findByUserUniversity_Surname(surname);
     }
+
+    @Override
+    public void delete(Long id) {
+        listOfDisciplinesRepo.deleteById(id);
+    }
 }

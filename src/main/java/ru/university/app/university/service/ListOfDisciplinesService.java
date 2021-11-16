@@ -10,4 +10,6 @@ public interface ListOfDisciplinesService {
 
     public Iterable<ListOfDisciplines> findBySurname (String surname);
 
+    public void delete (Long id);
+
 }

@@ -19,6 +19,8 @@ public class Discipline {
     @Enumerated(value = EnumType.STRING)
     private Specialty specialty;
 
+
+
     private String name;
 
     private Integer lectures;
@@ -44,6 +46,8 @@ public class Discipline {
     @ColumnDefault("0")
     @Column(columnDefinition = "BOOLEAN")
     private  Boolean zachet;
+
+
 
     public Discipline(Specialty specialty, String name, Integer lectures, Integer practices, Integer labs, Integer consultations, Boolean controlWork, Boolean courseWork, Boolean exam, Boolean zachet) {
         this.specialty = specialty;

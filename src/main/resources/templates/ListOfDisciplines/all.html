@@ -18,12 +18,14 @@
             <td>ID</td>
             <td>Преподаватель</td>
             <td>Дисциплина</td>
+            <td></td>
         </tr>
 
         <tr th:each="el:${list}">
             <td th:text="${el.id}"/>
             <td th:text="${el.userUniversity.getSurname()}"/>
             <td th:text="${el.discipline.getName}"/>
+            <td><form th:action="'/ListOfDisciplines/'+${el.id}+'/delete'" method="post"><button type="submit">удалить</button> </form> </td>
         </tr>
     </table>
 </form>
