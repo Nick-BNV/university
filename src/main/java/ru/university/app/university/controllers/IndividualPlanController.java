@@ -5,10 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import ru.university.app.university.models.EducationalWork;
+import ru.university.app.university.models.Specialty;
 import ru.university.app.university.models.UserUniversity;
 import ru.university.app.university.repo.EducationalWorkRepo;
 import ru.university.app.university.service.EducationalWorkService;
@@ -31,6 +30,24 @@ public class IndividualPlanController {
     public String all(Principal principal, Model model){
         String email = principal.getName();
         model.addAttribute("iplan", educationalWorkService.findByUser(email));
-    return "iplan/all";
-}
+    return "iplan/all";}
+
+    @PostMapping(path = "/add")
+    @PreAuthorize("hasAuthority('developers:write')")
+    public String add ( @RequestParam Integer lectures,
+                        @RequestParam Integer practices,
+                        @RequestParam Integer labs,
+                        @RequestParam Integer consultations,
+                        @RequestParam Integer controlWork,
+                        @RequestParam Integer courseWork,
+                        @RequestParam Integer exam,
+                        @RequestParam Integer zachet,
+                        Principal principal){
+        String email = principal.getName();
+        if(educationalWorkService.findByUser(email)==null){
+            EducationalWork educationalWork = new  EducationalWork( lectures, practices, labs,  consultations, controlWork, courseWork,  exam,  zachet);
+            educationalWorkService.save(educationalWork);}
+        else {}
+
+        return "iplan/all";}
 }

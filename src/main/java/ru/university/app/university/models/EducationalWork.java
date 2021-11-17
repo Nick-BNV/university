@@ -37,5 +37,14 @@ public class EducationalWork {
     @OneToOne(fetch = FetchType.EAGER)
     private UserUniversity userUniversity;
 
-
+    public EducationalWork(Integer lectures, Integer practices, Integer labs, Integer consultations, Integer controlWork, Integer courseWork, Integer exam, Integer zachet) {
+        this.lectures = lectures;
+        this.practices = practices;
+        this.labs = labs;
+        this.consultations = consultations;
+        this.controlWork = controlWork;
+        this.courseWork = courseWork;
+        this.exam = exam;
+        this.zachet = zachet;
+    }
 }
