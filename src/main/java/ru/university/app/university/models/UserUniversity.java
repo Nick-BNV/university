@@ -47,6 +47,9 @@ public class UserUniversity {
     @OneToMany (mappedBy = "userUniversity", cascade = CascadeType.ALL)
     List<ListOfDisciplines> list;
 
+    @OneToOne (cascade = CascadeType.ALL)
+    private EducationalWork educationalWork;
+
     public UserUniversity(String email,  String name, String middle_name, String surname, Role role, Status status) {
         this.email = email;
         this.name = name;
