@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Индивидуальный план</title>
+
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+<h1>Мой индивиуальный план</h1>
+
+
+<table class="table table-striped">
+
+    <tr>
+        <td>ID</td>
+        <td>Лекции</td>
+        <td>Практические работы</td>
+        <td>Лабораторные работы</td>
+        <td>Консультации</td>
+        <td>Контрольная работа</td>
+        <td>Курсовая работа</td>
+        <td>Экзамен</td>
+        <td>Зачет</td>
+        <td></td>
+
+    </tr>
+    <tr>
+        <td th:text="${iplan.id}"/>
+        <td th:text="${iplan.getLectures()}"/>
+        <td th:text="${iplan.getPractices()}"/>
+        <td th:text="${iplan.getLabs()}"/>
+        <td th:text="${iplan.getConsultations()}"/>
+        <td th:text="${iplan.getControlWork()}"/>
+        <td th:text="${iplan.getCourseWork()}"/>
+        <td th:text="${iplan.getExam()}"/>
+        <td th:text="${iplan.getZachet()}"/>
+    </tr>
+</table>
+</body>
+</html>

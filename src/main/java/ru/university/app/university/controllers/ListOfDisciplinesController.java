@@ -26,7 +26,7 @@ public class ListOfDisciplinesController {
     DisciplineServiceImpl disciplineService;
 
 
-    @GetMapping(path = "all")
+    @GetMapping(path = "/all")
     @PreAuthorize("hasAnyAuthority('developers:read')")
     public String all(Model model){
         Iterable<ListOfDisciplines> iterable = listOfDisciplinesServiceImpl.findAll();
