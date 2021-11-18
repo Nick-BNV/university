@@ -6,16 +6,16 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.university.app.university.models.EducationalWork;
-import ru.university.app.university.models.Specialty;
-import ru.university.app.university.models.UserUniversity;
+import ru.university.app.university.models.*;
 import ru.university.app.university.repo.EducationalWorkRepo;
 import ru.university.app.university.service.EducationalWorkService;
 import ru.university.app.university.service.EducationalWorkServiceImpl;
+import ru.university.app.university.service.ListOfDisciplinesServiceImpl;
 import ru.university.app.university.service.UserUniversityServiceImpl;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Collection;
 
 @Controller
 @RequestMapping("/IndividualPlan")
@@ -23,6 +23,15 @@ public class IndividualPlanController {
 
     @Autowired
     EducationalWorkServiceImpl educationalWorkService;
+
+    @Autowired
+    UserUniversityServiceImpl userUniversityService;
+
+    @Autowired
+    ListOfDisciplinesServiceImpl listOfDisciplinesService;
+
+    @Autowired
+    ListOfDisciplinesServiceImpl disciplinesService;
 
 
     @GetMapping(path = "/all")
@@ -48,20 +57,39 @@ public class IndividualPlanController {
 
     @PostMapping(path = "/add")
     @PreAuthorize("hasAuthority('developers:write')")
-    public String add ( @RequestParam Integer lectures,
-                        @RequestParam Integer practices,
-                        @RequestParam Integer labs,
-                        @RequestParam Integer consultations,
-                        @RequestParam Integer controlWork,
-                        @RequestParam Integer courseWork,
-                        @RequestParam Integer exam,
-                        @RequestParam Integer zachet,
-                        Principal principal){
+    @ResponseBody
+    public String add (
+           // @RequestParam Integer lectures,
+          //  @RequestParam Integer practices,
+          //  @RequestParam Integer labs,
+          //  @RequestParam Integer consultations,
+          //  @RequestParam Integer controlWork,
+         //   @RequestParam Integer courseWork,
+         //   @RequestParam Integer exam,
+         //    @RequestParam Integer zachet,
+            Principal principal){
         String email = principal.getName();
-        if(educationalWorkService.findByUser(email)==null){
-            EducationalWork educationalWork = new  EducationalWork( lectures, practices, labs,  consultations, controlWork, courseWork,  exam,  zachet);
-            educationalWorkService.save(educationalWork);}
-        else {}
+        Iterable <UserUniversity> user = userUniversityService.getByEmail(email);
+        ArrayList<UserUniversity> arList = makeCollection(user);
+        Iterable<ListOfDisciplines> disList = listOfDisciplinesService.findByUserId(arList.get(0).getId());
+        ArrayList<Discipline> list = new ArrayList<>();
+        for (ListOfDisciplines l:
+             disList) {
+            list.add(l.getDiscipline());
+        }
+        Integer lecturesCount=0;
+        for (Discipline d:
+             list) {
+            lecturesCount = lecturesCount + d.getLectures();}
+        return lecturesCount.toString();}
 
-        return "iplan/all";}
+    public static <E> ArrayList<E> makeCollection(Iterable<E> iter) {
+        ArrayList<E> list = new ArrayList<E>();
+        for (E item : iter) {
+            list.add(item);
+        }
+        return list;
+    }
+
+
 }

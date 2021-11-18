@@ -6,6 +6,7 @@ import ru.university.app.university.models.UserUniversity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public interface UserUniversityService {
     public Iterable<UserUniversity> getAllUsers();
@@ -23,5 +24,7 @@ public interface UserUniversityService {
    public ArrayList<UserUniversity> getByEmail (String email);
 
    public Iterable<UserUniversity> findBySurname (String surname);
+
+
 
 }
