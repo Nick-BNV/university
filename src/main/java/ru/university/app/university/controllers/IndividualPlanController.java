@@ -27,10 +27,24 @@ public class IndividualPlanController {
 
     @GetMapping(path = "/all")
     @PreAuthorize("hasAuthority('developers:read')")
-    public String all(Principal principal, Model model){
+    public String all(Principal principal, Model model) {
         String email = principal.getName();
-        model.addAttribute("iplan", educationalWorkService.findByUser(email));
+        if (educationalWorkService.findByUser(email) == null)
+        {model.addAttribute("iplan", educationalWorkService.findById(1L));}
+          else {model.addAttribute("iplan", educationalWorkService.findByUser(email));}
+
     return "iplan/all";}
+
+    @PostMapping(path = "all")
+    @PreAuthorize("hasAuthority('developers:write')")
+    public String delete(Principal principal, Model model){
+
+        String email = principal.getName();
+        EducationalWork educationalWork = educationalWorkService.findByUser(email);
+        if (educationalWork == null){}
+        else { educationalWorkService.delete(educationalWork.getId());}
+        all(principal, model);
+        return "iplan/all";}
 
     @PostMapping(path = "/add")
     @PreAuthorize("hasAuthority('developers:write')")

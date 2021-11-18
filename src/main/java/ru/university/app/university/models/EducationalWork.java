@@ -34,7 +34,7 @@ public class EducationalWork {
     private Integer zachet;
 
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne (mappedBy = "educationalWork")
     private UserUniversity userUniversity;
 
     public EducationalWork(Integer lectures, Integer practices, Integer labs, Integer consultations, Integer controlWork, Integer courseWork, Integer exam, Integer zachet) {

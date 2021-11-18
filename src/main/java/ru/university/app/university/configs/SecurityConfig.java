@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //        .antMatchers("/group/**").permitAll()
         //        .and()
                 .formLogin()
-                .defaultSuccessUrl("/admin/success");
+                .defaultSuccessUrl("/");
 
     }
    /*

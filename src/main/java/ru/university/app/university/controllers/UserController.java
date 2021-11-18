@@ -62,8 +62,8 @@ public class UserController {
             @RequestParam Status status,
             Model model
             ) {
-
-        UserUniversity user = new UserUniversity(email, name, middle_name, surname, role, status);
+        String defPass = "$2a$12$Xutlu6OQsv7DS2XRqHxsmunpSgg7cVoE/75Lrkg.U92iMCGTggoGO";
+        UserUniversity user = new UserUniversity(email, defPass, name, middle_name, surname, status ,role );
         userUniversityService.saveUser(user);
         model.addAttribute("text1", "Пользователь добавлен!");
         return "/admin/add";

@@ -29,5 +29,15 @@ public class EducationalWorkServiceImpl implements EducationalWorkService{
         return educationalWorkRepo.findEducationalWorkByUserUniversity_Email(st);
     }
 
+    @Override
+    public void delete(Long id) {
+        educationalWorkRepo.deleteById(id);
+    }
+
+    @Override
+    public EducationalWork findById(Long id) {
+        return educationalWorkRepo.findById(id).get();
+    }
+
 
 }

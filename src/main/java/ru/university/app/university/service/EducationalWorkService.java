@@ -11,5 +11,9 @@ public interface EducationalWorkService {
 
     public EducationalWork findByUser(String st);
 
+    public  void  delete (Long id);
+
+    public EducationalWork findById (Long id);
+
 
 }

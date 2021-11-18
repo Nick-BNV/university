@@ -26,7 +26,7 @@
 
     </tr>
     <tr>
-        <td th:text="${iplan.id}"/>
+        <td th:text="${iplan.getId()}"/>
         <td th:text="${iplan.getLectures()}"/>
         <td th:text="${iplan.getPractices()}"/>
         <td th:text="${iplan.getLabs()}"/>
@@ -35,6 +35,7 @@
         <td th:text="${iplan.getCourseWork()}"/>
         <td th:text="${iplan.getExam()}"/>
         <td th:text="${iplan.getZachet()}"/>
+        <td><form method="post" action="/IndividualPlan/all"><button type="submit">Удалить</button></form></td>
     </tr>
 </table>
 </body>

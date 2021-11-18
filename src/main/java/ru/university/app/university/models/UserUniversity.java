@@ -44,13 +44,14 @@ public class UserUniversity {
     private Role role;
 
 
-    @OneToMany (mappedBy = "userUniversity", cascade = CascadeType.ALL)
+    @OneToMany (cascade = CascadeType.ALL)
     List<ListOfDisciplines> list;
 
-    @OneToOne (mappedBy = "userUniversity", cascade = CascadeType.ALL)
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn (name="user_id")
     private EducationalWork educationalWork;
 
-    public UserUniversity(String email,  String name, String middle_name, String surname, Role role, Status status) {
+    public UserUniversity(String email,  String name, String middle_name, String surname, Status status, Role role) {
         this.email = email;
         this.name = name;
         this.middle_name = middle_name;
@@ -59,6 +60,15 @@ public class UserUniversity {
         this.status = status;
     }
 
+    public UserUniversity(String email, String pass, String name, String middle_name, String surname, Status status, Role role) {
+        this.email = email;
+        this.pass = pass;
+        this.name = name;
+        this.middle_name = middle_name;
+        this.surname = surname;
+        this.status = status;
+        this.role = role;
+    }
 
     public Long getId() {
         return id;
