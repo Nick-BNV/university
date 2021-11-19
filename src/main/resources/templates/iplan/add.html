@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование учебной работы</title>
+</head>
+<body>
+<header th:insert="blocks/header::header"></header>
+<h1>Редактирование учебной работы</h1>
+<form action="add" method="post">
+    <table class="table table-striped">
+        <tr>
+            <td>Лекции</td>
+            <td>Практические работы</td>
+            <td>Лабораторные работы</td>
+            <td>Консультации</td>
+            <td>Контрольная работа</td>
+            <td>Курсовая работа</td>
+            <td>Экзамен</td>
+            <td>Зачет</td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td><input type="text" th:value="${countLectures}" name="lectures" class="form-control"></td>
+            <td><input type="text" th:value="${countPractices}" name="practices" class="form-control"></td>
+            <td><input type="text" th:value="${countLabs}" name="labs" class="form-control"></td>
+            <td><input type="text" th:value="${countConsultation}" name="consultations" class="form-control"></td>
+            <td><input type="text" th:value="${countControlWork}" name="controlWork" class="form-control"></td>
+            <td><input type="text" th:value="${countCourseWork}" name="courseWork" class="form-control"></td>
+            <td><input type="text" th:value="${countExam}" name="exam" class="form-control"></td>
+            <td><input type="text" th:value="${countZachet}" name="zachet" class="form-control"></td>
+
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-success">Обновить</button>
+</form>
+</body>
+</html>

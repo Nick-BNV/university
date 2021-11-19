@@ -3,8 +3,6 @@ package ru.university.app.university.models;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 
@@ -37,7 +35,7 @@ public class EducationalWork {
     @OneToOne (mappedBy = "educationalWork")
     private UserUniversity userUniversity;
 
-    public EducationalWork(Integer lectures, Integer practices, Integer labs, Integer consultations, Integer controlWork, Integer courseWork, Integer exam, Integer zachet) {
+    public EducationalWork(Integer lectures, Integer practices, Integer labs, Integer consultations, Integer controlWork, Integer courseWork, Integer exam, Integer zachet, UserUniversity userUniversity) {
         this.lectures = lectures;
         this.practices = practices;
         this.labs = labs;
@@ -46,5 +44,6 @@ public class EducationalWork {
         this.courseWork = courseWork;
         this.exam = exam;
         this.zachet = zachet;
+        this.userUniversity = userUniversity;
     }
 }
