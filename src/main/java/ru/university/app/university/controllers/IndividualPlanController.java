@@ -55,7 +55,7 @@ public class IndividualPlanController {
         all(principal, model);
         return "iplan/all";}
 
-    @PostMapping(path = "/add")
+    @GetMapping(path = "/add")
     @PreAuthorize("hasAuthority('developers:write')")
     @ResponseBody
     public String add (
@@ -77,11 +77,22 @@ public class IndividualPlanController {
              disList) {
             list.add(l.getDiscipline());
         }
-        Integer lecturesCount=0;
+        Integer countLectures=0;
+        Integer countPractices=0;
+        Integer countLabs = 0;
+        Integer countConsultation = 0;
+        Integer countControlWork= 0;
+        Integer countCourseWork= 0;
+        Integer countExam= 0;
+        Integer countZachet= 0;
         for (Discipline d:
              list) {
-            lecturesCount = lecturesCount + d.getLectures();}
-        return lecturesCount.toString();}
+            countLectures = countLectures + d.getLectures();
+
+
+        }
+        return countLectures.toString();}
+
 
     public static <E> ArrayList<E> makeCollection(Iterable<E> iter) {
         ArrayList<E> list = new ArrayList<E>();
