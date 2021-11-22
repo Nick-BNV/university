@@ -16,6 +16,7 @@ import ru.university.app.university.service.UserUniversityServiceImpl;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Controller
 @RequestMapping("/IndividualPlan")
@@ -38,9 +39,10 @@ public class IndividualPlanController {
     @PreAuthorize("hasAuthority('developers:read')")
     public String all(Principal principal, Model model) {
         String email = principal.getName();
-        if (educationalWorkService.findByUser(email) == null)
+        List<UserUniversity> userList = userUniversityService.getByEmail(email);
+        if (userList.get(0).getEducationalWork()==null)
         {model.addAttribute("iplan", educationalWorkService.findById(1L));}
-        else {model.addAttribute("iplan", educationalWorkService.findByUser(email));}
+        else {model.addAttribute("iplan", educationalWorkService.findByUserEmail(email).get(0));}
 
         return "iplan/all";}
 
@@ -49,9 +51,10 @@ public class IndividualPlanController {
     public String delete(Principal principal, Model model){
 
         String email = principal.getName();
-        EducationalWork educationalWork = educationalWorkService.findByUser(email);
+        EducationalWork educationalWork = educationalWorkService.findAllByUserEmail(email).get(0);
         if (educationalWork == null){}
-        else { educationalWorkService.delete(educationalWork.getId());}
+        else {userUniversityService.getByEmail(email).get(0).setEducationalWork(null);
+            educationalWorkService.delete(educationalWork);}
         all(principal, model);
         return "iplan/all";}
 
@@ -60,8 +63,8 @@ public class IndividualPlanController {
     @PreAuthorize("hasAuthority('developers:read')")
     public String edit (Model model, Principal principal){
         String email = principal.getName();
-        Iterable <UserUniversity> user = userUniversityService.getByEmail(email);
-        ArrayList<UserUniversity> arList = makeCollection(user);
+        List<UserUniversity> arList = userUniversityService.getByEmail(email);
+        if (arList.get(0).getEducationalWork()==null){
         Iterable<ListOfDisciplines> disList = listOfDisciplinesService.findByUserId(arList.get(0).getId());
         ArrayList<Discipline> list = new ArrayList<>();
         for (ListOfDisciplines l:
@@ -93,8 +96,20 @@ public class IndividualPlanController {
             model.addAttribute("countControlWork", countControlWork);
             model.addAttribute("countCourseWork", countCourseWork);
             model.addAttribute("countExam", countExam);
-            model.addAttribute("countZachet", countZachet);
+            model.addAttribute("countZachet", countZachet);}
         }
+        else {
+            model.addAttribute("countLectures", arList.get(0).getEducationalWork().getLectures());
+            model.addAttribute("countPractices", arList.get(0).getEducationalWork().getPractices());
+            model.addAttribute("countLabs", arList.get(0).getEducationalWork().getLabs());
+            model.addAttribute("countConsultation", arList.get(0).getEducationalWork().getConsultations());
+            model.addAttribute("countControlWork", arList.get(0).getEducationalWork().getControlWork());
+            model.addAttribute("countCourseWork",arList.get(0).getEducationalWork().getCourseWork());
+            model.addAttribute("countExam", arList.get(0).getEducationalWork().getExam());
+            model.addAttribute("countZachet", arList.get(0).getEducationalWork().getZachet());}
+
+
+
         return "iplan/add";}
 
 
@@ -111,11 +126,8 @@ public class IndividualPlanController {
              @RequestParam Integer zachet,
             Principal principal){
         String email = principal.getName();
-        EducationalWork educationalWork;
-        if(educationalWorkService.findByUser(email)==null){educationalWork = new EducationalWork();}
-       else {educationalWork=educationalWorkService.findByUser(email);}
+        EducationalWork educationalWork = new EducationalWork();
             UserUniversity userUniversity = userUniversityService.getByEmail(email).get(0);
-
             educationalWork.setLectures(lectures);
             educationalWork.setPractices(practices);
             educationalWork.setLabs(labs);
@@ -124,11 +136,8 @@ public class IndividualPlanController {
             educationalWork.setCourseWork(courseWork);
             educationalWork.setExam(exam);
             educationalWork.setZachet(zachet);
-            // передает весь объект вместо индекса, в результате в save не передается
-            educationalWork.setUserUniversity(userUniversity);
-            System.out.println(educationalWork.getUserUniversity());
-        // UserUniversity(id=1, email=bugreev.n@yandex.ru, pass=$2a$12$2tPyiIymSmo9QtKbxyGBS.Qi056KRdsj/zLgrGNvpELQ7hixOFex2, name=Николай, middle_name=Викторович, surname=Бугреев, status=ACTIVE, role=ADMIN, list=[], educationalWork=null)
-        educationalWorkService.save(educationalWork);
+            userUniversity.setEducationalWork(educationalWork);
+            educationalWorkService.save(educationalWork);
         return "iplan/add";}
 
 
@@ -139,6 +148,4 @@ public class IndividualPlanController {
         }
         return list;
     }
-
-
 }

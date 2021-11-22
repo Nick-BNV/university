@@ -44,11 +44,11 @@ public class UserUniversity {
     private Role role;
 
 
-    @OneToMany (cascade = CascadeType.ALL)
-    List<ListOfDisciplines> list;
+    @OneToMany (mappedBy = "userUniversity",cascade = CascadeType.ALL)
+    List<ListOfDisciplines> listOfDisciplines;
 
     @OneToOne (cascade = CascadeType.ALL)
-    @JoinColumn (name="user_id")
+    @JoinColumn (name="educational_work_id")
     private EducationalWork educationalWork;
 
     public UserUniversity(String email,  String name, String middle_name, String surname, Status status, Role role) {

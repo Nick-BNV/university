@@ -14,11 +14,12 @@ public class ListOfDisciplines {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToOne( fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private UserUniversity userUniversity;
 
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Discipline discipline;
 
     public ListOfDisciplines(UserUniversity userUniversity, Discipline discipline) {
