@@ -88,7 +88,7 @@ public class IndividualPlanController {
             if(d.getControlWork()){countControlWork=countControlWork+1;}
             if(d.getCourseWork()){countCourseWork=countCourseWork+1;}
             if (d.getExam()){countExam=countExam+1;}
-            if (d.getZachet()){countZachet=countZachet+1;}
+            if (d.getZachet()){countZachet=countZachet+1;}}
             model.addAttribute("countLectures", countLectures);
             model.addAttribute("countPractices", countPractices);
             model.addAttribute("countLabs", countLabs);
@@ -96,7 +96,7 @@ public class IndividualPlanController {
             model.addAttribute("countControlWork", countControlWork);
             model.addAttribute("countCourseWork", countCourseWork);
             model.addAttribute("countExam", countExam);
-            model.addAttribute("countZachet", countZachet);}
+            model.addAttribute("countZachet", countZachet);
         }
         else {
             model.addAttribute("countLectures", arList.get(0).getEducationalWork().getLectures());

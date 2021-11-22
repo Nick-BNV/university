@@ -53,6 +53,7 @@ public class DisciplineController {
     @ResponseBody
     public  String add (
             @RequestParam Specialty specialty,
+            @RequestParam Course course,
             @RequestParam String name,
             @RequestParam Integer lectures,
             @RequestParam Integer practices,
@@ -63,7 +64,7 @@ public class DisciplineController {
             @RequestParam Boolean exam,
             @RequestParam Boolean zachet)
     {
-       Discipline discipline = new Discipline(specialty, name, lectures, practices, labs, consultations, controlWork, courseWork, exam, zachet);
+        Discipline discipline = new Discipline(specialty, course, name, lectures, practices, labs, consultations, controlWork, courseWork, exam, zachet);
         disciplineService.save(discipline);
         return "дисциплина добавлена";
     }
@@ -101,6 +102,7 @@ public class DisciplineController {
     @PreAuthorize("hasAuthority('developers:write')")
     public  String edit (@PathVariable(value = "id") Long id,
                              @RequestParam Specialty specialty,
+                             @RequestParam Course course,
                              @RequestParam String name,
                              @RequestParam Integer lectures,
                              @RequestParam Integer practices,
@@ -112,6 +114,7 @@ public class DisciplineController {
                              @RequestParam Boolean zachet) {
         Discipline discipline = disciplineService.getDiscipline(id);
         discipline.setSpecialty(specialty);
+        discipline.setCourse(course);
         discipline.setName(name);
         discipline.setLectures(lectures);
         discipline.setPractices(practices);

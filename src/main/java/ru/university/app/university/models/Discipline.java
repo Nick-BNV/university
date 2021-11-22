@@ -21,6 +21,9 @@ public class Discipline {
     @Enumerated(value = EnumType.STRING)
     private Specialty specialty;
 
+    @Enumerated(value = EnumType.STRING)
+    private Course course;
+
     @OneToMany(mappedBy = "discipline", cascade = CascadeType.ALL)
     List<ListOfDisciplines> list;
 
@@ -50,7 +53,19 @@ public class Discipline {
     @Column(columnDefinition = "BOOLEAN")
     private  Boolean zachet;
 
-
+    public Discipline(Specialty specialty, Course course, String name, Integer lectures, Integer practices, Integer labs, Integer consultations, Boolean controlWork, Boolean courseWork, Boolean exam, Boolean zachet) {
+        this.specialty = specialty;
+        this.course = course;
+        this.name = name;
+        this.lectures = lectures;
+        this.practices = practices;
+        this.labs = labs;
+        this.consultations = consultations;
+        this.controlWork = controlWork;
+        this.courseWork = courseWork;
+        this.exam = exam;
+        this.zachet = zachet;
+    }
 
     public Discipline(Specialty specialty, String name, Integer lectures, Integer practices, Integer labs, Integer consultations, Boolean controlWork, Boolean courseWork, Boolean exam, Boolean zachet) {
         this.specialty = specialty;

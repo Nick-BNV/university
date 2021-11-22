@@ -21,6 +21,12 @@
         </option>
     </select>
     <br>
+    <select name="course">
+        <option th:each="course : ${T(ru.university.app.university.models.Course).values()}"
+                th:value="${course}"
+                th:text="${course}">
+        </option>
+    </select>
     <table>
         <tr>
             <td></td>

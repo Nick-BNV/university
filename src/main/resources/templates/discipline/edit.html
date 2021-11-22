@@ -12,6 +12,7 @@
         <tr>
             <td>Дисциплина</td>
             <td>Спецальность</td>
+            <td>Курс</td>
             <td>Лекции</td>
             <td>Практические работы</td>
             <td>Лабораторные работы</td>
@@ -29,7 +30,16 @@
                 <select name="specialty">
                     <option th:each="specialty : ${T(ru.university.app.university.models.Specialty).values()}"
                             th:value="${el.specialty}"
-                            th:text="${el.specialty}">
+                            th:text="${specialty}">
+                    </option>
+                </select>
+
+            </td>
+            <td>
+                <select name="course">
+                    <option th:each="course : ${T(ru.university.app.university.models.Course).values()}"
+                            th:value="${el.course}"
+                            th:text="${course}">
                     </option>
                 </select>
 
