@@ -8,14 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.university.app.university.models.*;
 import ru.university.app.university.repo.EducationalWorkRepo;
-import ru.university.app.university.service.EducationalWorkService;
-import ru.university.app.university.service.EducationalWorkServiceImpl;
-import ru.university.app.university.service.ListOfDisciplinesServiceImpl;
-import ru.university.app.university.service.UserUniversityServiceImpl;
+import ru.university.app.university.service.*;
 
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -33,6 +31,9 @@ public class IndividualPlanController {
 
     @Autowired
     ListOfDisciplinesServiceImpl disciplinesService;
+
+    @Autowired
+    GroupServiceImpl groupService;
 
 
     @GetMapping(path = "/all")
@@ -75,20 +76,36 @@ public class IndividualPlanController {
         Integer countPractices=0;
         Integer countLabs = 0;
         Integer countConsultation = 0;
-        Integer countControlWork= 0;
-        Integer countCourseWork= 0;
-        Integer countExam= 0;
-        Integer countZachet= 0;
+        Float countControlWork= 0f;
+        Float countCourseWork= 0f;
+        Float countExam= 0f;
+        Float countZachet= 0f;
+
+
+
         for (Discipline d:
                 list) {
+            System.out.println(d.getName());
+
             countLectures = countLectures + d.getLectures();
             countPractices = countPractices +d.getPractices();
             countLabs = countLabs +d.getLabs();
             countConsultation = countConsultation+d.getConsultations();
-            if(d.getControlWork()){countControlWork=countControlWork+1;}
-            if(d.getCourseWork()){countCourseWork=countCourseWork+1;}
-            if (d.getExam()){countExam=countExam+1;}
-            if (d.getZachet()){countZachet=countZachet+1;}}
+
+
+            for (StudyGroup group:groupService.findByCourseAndSpecialty(d.getCourse(),d.getSpecialty())
+            ) {
+                Float studentCount=0f;
+                studentCount=group.getStudentCount()+studentCount;
+                System.out.println(group.getGroupName());
+
+            if(d.getControlWork()){countControlWork=studentCount*0.1f+countControlWork;}
+            if (d.getCourseWork()){countCourseWork=studentCount*0.1f+countCourseWork;}
+            if (d.getExam()){countExam=studentCount*0.1f+countExam;}
+            if (d.getZachet()){countZachet=studentCount*0.1f+countZachet;}}
+            }
+
+
             model.addAttribute("countLectures", countLectures);
             model.addAttribute("countPractices", countPractices);
             model.addAttribute("countLabs", countLabs);
@@ -120,11 +137,12 @@ public class IndividualPlanController {
              @RequestParam Integer practices,
              @RequestParam Integer labs,
              @RequestParam Integer consultations,
-             @RequestParam Integer controlWork,
-             @RequestParam Integer courseWork,
-             @RequestParam Integer exam,
-             @RequestParam Integer zachet,
-            Principal principal){
+             @RequestParam Float controlWork,
+             @RequestParam Float courseWork,
+             @RequestParam Float exam,
+             @RequestParam Float zachet,
+            Principal principal,
+             Model model){
         String email = principal.getName();
         EducationalWork educationalWork = new EducationalWork();
             UserUniversity userUniversity = userUniversityService.getByEmail(email).get(0);
@@ -138,7 +156,8 @@ public class IndividualPlanController {
             educationalWork.setZachet(zachet);
             userUniversity.setEducationalWork(educationalWork);
             educationalWorkService.save(educationalWork);
-        return "iplan/add";}
+            all(principal, model);
+        return "/iplan/all";}
 
 
     public static <E> ArrayList<E> makeCollection(Iterable<E> iter) {

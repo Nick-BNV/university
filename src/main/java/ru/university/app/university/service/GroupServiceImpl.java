@@ -3,10 +3,13 @@ package ru.university.app.university.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.university.app.university.models.Course;
+import ru.university.app.university.models.Specialty;
 import ru.university.app.university.models.StudyGroup;
 import ru.university.app.university.repo.StudyGroupRepo;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -51,5 +54,10 @@ public class GroupServiceImpl implements GroupService {
     @Override
     public Iterable<StudyGroup> findByName(String name) {
         return studyGroupRepo.findByGroupName(name);
+    }
+
+    @Override
+    public List<StudyGroup> findByCourseAndSpecialty(Course course, Specialty specialty) {
+        return studyGroupRepo.findByCourseAndSpecialty(course, specialty);
     }
 }

@@ -17,16 +17,16 @@
             <td>
                 <select name="status">
                     <option th:each="status : ${T(ru.university.app.university.models.Status).values()}"
-                            th:value="${el.status}"
-                            th:text="${el.status}">
+                            th:value="${status}"
+                            th:text="${status}">
                     </option>
                 </select>
 
             <td>
             <select name="role">
                 <option th:each="role : ${T(ru.university.app.university.models.Role).values()}"
-                        th:value="${el.role}"
-                        th:text="${el.role}">
+                        th:value="${role}"
+                        th:text="${role}">
                 </option>
             </select>
         </tr>

@@ -23,19 +23,19 @@ public class EducationalWork {
 
     private  Integer consultations;
 
-    private Integer controlWork;
+    private Float controlWork;
 
-    private Integer courseWork;
+    private Float courseWork;
 
-    private Integer exam;
+    private Float exam;
 
-    private Integer zachet;
+    private Float zachet;
 
 
     @OneToOne (mappedBy = "educationalWork")
     private UserUniversity userUniversity;
 
-    public EducationalWork(Integer lectures, Integer practices, Integer labs, Integer consultations, Integer controlWork, Integer courseWork, Integer exam, Integer zachet, UserUniversity userUniversity) {
+    public EducationalWork(Integer lectures, Integer practices, Integer labs, Integer consultations, Float controlWork, Float courseWork, Float exam, Float zachet, UserUniversity userUniversity) {
         this.lectures = lectures;
         this.practices = practices;
         this.labs = labs;
