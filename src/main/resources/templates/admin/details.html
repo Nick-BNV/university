@@ -13,7 +13,9 @@
         <td>Имя</td>
         <td>Отчество</td>
         <td>Активен/заблокирован</td>
+        <td>Статус</td>
         <td>Роль</td>
+        <td></td>
         <td></td>
     </tr>
     <tr th:each="el:${user}">
@@ -22,8 +24,8 @@
         <td th:text="${el.name}"/>
         <td th:text="${el.middle_name}"/>
         <td th:text="${el.email}"/>
-        <td th:text="${el.status}"/>
-        <td th:text="${el.role}"/>
+        <td th:text="${el.status.getDisplayName()}"/>
+        <td th:text="${el.role.getDisplayName()}"/>
         <td><form method="post" th:action="'/admin/details/'+${el.id}+'/delete'"> <button type="submit">удалить</button></form></td>
         <td><form method="get" th:action="'/admin/details/'+${el.id}+'/edit'"> <button type="submit">редактировать</button></form></td>
 

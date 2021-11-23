@@ -13,14 +13,14 @@
     <select name="course">
         <option th:each="course : ${T(ru.university.app.university.models.Course).values()}"
                 th:value="${course}"
-                th:text="${course}">
+                th:text="${course.getDisplayName()}">
         </option>
     </select>
     <br>
     <select name="specialty">
         <option th:each="specialty : ${T(ru.university.app.university.models.Specialty).values()}"
                 th:value="${specialty}"
-                th:text="${specialty}">
+                th:text="${specialty.getDisplayName()}">
         </option>
     </select>
     <br>

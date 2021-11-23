@@ -26,8 +26,8 @@
         <td th:text="${el.id}"/>
         <td th:text="${el.groupName}"/>
         <td th:text="${el.studentCount}"/>
-        <td th:text="${el.course}"/>
-        <td th:text="${el.specialty}"/>
+        <td th:text="${el.course.getDisplayName()}"/>
+        <td th:text="${el.specialty.getDisplayName()}"/>
         <td><a th:href="'/group/details/'+${el.id}">Подробнее</a></td>
 </tr>
 </table>

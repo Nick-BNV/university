@@ -9,6 +9,15 @@
 <h1>Редактирование пользователя</h1>
 <form action="edit" method="post">
     <table class="table table-striped">
+        <tr>
+            <td>ID</td>
+            <td>Фамилия</td>
+            <td>Имя</td>
+            <td>Отчество</td>
+            <td>Активен/заблокирован</td>
+            <td>Роль</td>
+            <td></td>
+        </tr>
         <tr th:each="el:${user}">
             <td><input type="text" th:value="${el.surname}" name="surname" class="form-control"></td>
             <td><input type="text" th:value="${el.name}" name="name" class="form-control"></td>
@@ -18,7 +27,7 @@
                 <select name="status">
                     <option th:each="status : ${T(ru.university.app.university.models.Status).values()}"
                             th:value="${status}"
-                            th:text="${status}">
+                            th:text="${status.getDisplayName()}">
                     </option>
                 </select>
 
@@ -26,7 +35,7 @@
             <select name="role">
                 <option th:each="role : ${T(ru.university.app.university.models.Role).values()}"
                         th:value="${role}"
-                        th:text="${role}">
+                        th:text="${role.getDisplayName()}">
                 </option>
             </select>
         </tr>

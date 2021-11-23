@@ -1,16 +1,29 @@
 package ru.university.app.university.models;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public enum Course {
-    FIRST,
+    FIRST("первый курс"),
 
-    SECOND,
+    SECOND("второй курс"),
 
-    THIRD,
+    THIRD("третий курс"),
 
-    FOURTH,
+    FOURTH("четвертый курс"),
 
-    FIFTH,
+    FIFTH("пятый курс"),
 
-    SIXTH
+    SIXTH("шестой курс");
+
+    private String name;
+
+    public String getDisplayName() {
+        return name;
+    }
+
+    private Course (String name){
+        this.name=name;
+    }
 
 }

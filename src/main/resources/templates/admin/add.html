@@ -18,14 +18,14 @@
     <select name="role">
         <option th:each="role : ${T(ru.university.app.university.models.Role).values()}"
                 th:value="${role}"
-                th:text="${role}">
+                th:text="${role.getDisplayName()}">
         </option>
     </select>
     <br>
     <select name="status">
         <option th:each="status : ${T(ru.university.app.university.models.Status).values()}"
                 th:value="${status}"
-                th:text="${status}">
+                th:text="${status.getDisplayName()}">
         </option>
     </select>
     <br>

@@ -11,6 +11,7 @@ import ru.university.app.university.repo.EducationalWorkRepo;
 import ru.university.app.university.service.*;
 
 import java.security.Principal;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -85,8 +86,6 @@ public class IndividualPlanController {
 
         for (Discipline d:
                 list) {
-            System.out.println(d.getName());
-
             countLectures = countLectures + d.getLectures();
             countPractices = countPractices +d.getPractices();
             countLabs = countLabs +d.getLabs();
@@ -97,13 +96,13 @@ public class IndividualPlanController {
             ) {
                 Float studentCount=0f;
                 studentCount=group.getStudentCount()+studentCount;
-                System.out.println(group.getGroupName());
 
-            if(d.getControlWork()){countControlWork=studentCount*0.1f+countControlWork;}
-            if (d.getCourseWork()){countCourseWork=studentCount*0.1f+countCourseWork;}
-            if (d.getExam()){countExam=studentCount*0.1f+countExam;}
-            if (d.getZachet()){countZachet=studentCount*0.1f+countZachet;}}
+            if(d.getControlWork()){countControlWork=studentCount*0.3f+countControlWork;}
+            if (d.getCourseWork()){countCourseWork=studentCount*1f+countCourseWork;}
+            if (d.getExam()){countExam=studentCount*0.35f+countExam;}
+            if (d.getZachet()){countZachet=studentCount*0.25f+countZachet;}}
             }
+
 
 
             model.addAttribute("countLectures", countLectures);

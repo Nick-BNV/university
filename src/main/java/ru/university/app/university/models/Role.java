@@ -8,8 +8,17 @@ import java.util.stream.Collectors;
 public enum Role {
 
 
-    USER(Set.of(Permission.DEVELOPERS_READ)),
-    ADMIN(Set.of(Permission.DEVELOPERS_READ, Permission.DEVELOPERS_WRITE));
+    USER("преподаватель",Set.of(Permission.DEVELOPERS_READ)),
+    ADMIN("администратор",Set.of(Permission.DEVELOPERS_READ, Permission.DEVELOPERS_WRITE));
+
+    private String name;
+    Role(String name, Set<Permission> permissions) {
+        this.name=name;
+        this.permissions = permissions;
+    }
+    public String getDisplayName() {
+        return name;
+    }
 
     private final Set<Permission> permissions;
 

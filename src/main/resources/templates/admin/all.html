@@ -25,7 +25,7 @@
         <td th:text="${el.surname}"/>
         <td th:text="${el.name}"/>
         <td th:text="${el.middle_name}"/>
-        <td th:text="${el.role}"/>
+        <td th:text="${el.role.getDisplayName()}"/>
         <td><a th:href="'/admin/details/'+${el.id}">Подробнее</a></td>
 </tr>
 </table>

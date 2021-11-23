@@ -7,12 +7,20 @@
 <body>
 <header th:insert="blocks/header::header"></header>
 <table class="table table-striped">
+    <tr>
+        <td>ID</td>
+        <td>Название группы</td>
+        <td>Количество студентов</td>
+        <td>Курс</td>
+        <td>Спецальность</td>
+        <td></td>
+    </tr>
     <tr th:each="el:${group}">
         <td th:text="${el.id}"/>
         <td th:text="${el.groupName}"/>
         <td th:text="${el.studentCount}"/>
-        <td th:text="${el.course}"/>
-        <td th:text="${el.specialty}"/>
+        <td th:text="${el.course.getDisplayName()}"/>
+        <td th:text="${el.specialty.getDisplayName()}"/>
         <td><form method="post" th:action="'/group/details/'+${el.id}+'/delete'"> <button type="submit">удалить</button></form></td>
         <td><form method="get" th:action="'/group/details/'+${el.id}+'/edit'"> <button type="submit">редактировать</button></form></td>
 

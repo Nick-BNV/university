@@ -9,6 +9,13 @@
 <h1>Редактирование группы</h1>
 <form action="edit" method="post">
     <table class="table table-striped">
+        <tr>
+            <td>Название группы</td>
+            <td>Количество студентов</td>
+            <td>Курс</td>
+            <td>Спецальность</td>
+            <td></td>
+        </tr>
         <tr th:each="el:${group}">
             <td><input type="text" th:value="${el.groupName}" name="group_name" class="form-control"></td>
             <td><input type="text" th:value="${el.studentCount}" name="studentCount" class="form-control"></td>
@@ -16,7 +23,7 @@
                 <select name="course">
                     <option  th:each="course: ${T(ru.university.app.university.models.Course).values()}"
                             th:value="${course}"
-                            th:text="${course}">
+                            th:text="${course.getDisplayName()}">
                     </option>
                 </select>
 
@@ -25,7 +32,7 @@
                 <select name="specialty">
                     <option th:each="specialty : ${T(ru.university.app.university.models.Specialty).values()}"
                             th:value="${specialty}"
-                            th:text="${specialty}">
+                            th:text="${specialty.getDisplayName()}">
                     </option>
                 </select>
 
