@@ -10,6 +10,7 @@ import ru.university.app.university.models.*;
 import ru.university.app.university.repo.EducationalWorkRepo;
 import ru.university.app.university.service.*;
 
+import java.math.BigDecimal;
 import java.security.Principal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -95,24 +96,27 @@ public class IndividualPlanController {
             for (StudyGroup group:groupService.findByCourseAndSpecialty(d.getCourse(),d.getSpecialty())
             ) {
                 Float studentCount=0f;
-                studentCount=group.getStudentCount()+studentCount;
+                studentCount=group.getStudentCount().floatValue();
+
+
+
 
             if(d.getControlWork()){countControlWork=studentCount*0.3f+countControlWork;}
             if (d.getCourseWork()){countCourseWork=studentCount*1f+countCourseWork;}
             if (d.getExam()){countExam=studentCount*0.35f+countExam;}
             if (d.getZachet()){countZachet=studentCount*0.25f+countZachet;}}
             }
-
-
+            // decimalFormat нужен т.к. Flout дает лишние цифры в тысячных долях, но при этом при форматировании через  decimalFormat вылезает запятая вместо точки
+            DecimalFormat decimalFormat = new DecimalFormat( "#.###" );
 
             model.addAttribute("countLectures", countLectures);
             model.addAttribute("countPractices", countPractices);
             model.addAttribute("countLabs", countLabs);
             model.addAttribute("countConsultation", countConsultation);
-            model.addAttribute("countControlWork", countControlWork);
-            model.addAttribute("countCourseWork", countCourseWork);
-            model.addAttribute("countExam", countExam);
-            model.addAttribute("countZachet", countZachet);
+            model.addAttribute("countControlWork", decimalFormat.format(countControlWork).replace(",", ".") );
+            model.addAttribute("countCourseWork", decimalFormat.format(countCourseWork).replace(",", "."));
+            model.addAttribute("countExam", decimalFormat.format(countExam).replace(",", "."));
+            model.addAttribute("countZachet", decimalFormat.format(countZachet).replace(",", "."));
         }
         else {
             model.addAttribute("countLectures", arList.get(0).getEducationalWork().getLectures());
